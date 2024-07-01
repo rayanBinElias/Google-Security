@@ -139,16 +139,21 @@ Module 1 Configuring Access
       b. Reset all user permissions in the small bank’s IAM. Use Cloud Identity to create dynamic groups for each of the bank’s teams. Use the dynamic groups’ metadata field for team type to allocate users to their appropriate group with a Python script. 
       c. Reset all user permissions in the small bank’s IAM. Use Cloud Identity to create the required Google Groups. Upgrade the Google Groups to Security Groups. Use a Python script to allocate users to the groups. 
       d. Reset all user permissions in the small bank’s IAM. Use the Directory API in the Google Workspace Admin SDK to create Google Groups. Use a Python script to allocate users to the groups. 
-      Ans. d(wrong)
+      Ans. B 
+        - Use Dynamic Groups to create groups based on Identity attributes, such as department, and place the users in a flat hierarchy. 
+        - Dynamic group metadata helps build the structure to identify the users.  
+
+      D(wrong)
         - Using Google Groups from the Workspace Admin SDK Directory APIs allows 
           - access to Google Drive and Docs, but not to Google Cloud resources.
+
 
     3. Cymbal Bank leverages Google Cloud storage services, an on-premises Apache Spark Cluster, and a web application hosted on a third-party cloud. The Spark cluster and web application require limited access to Cloud Storage buckets and a Cloud SQL instance for only a few hours per day. You have been tasked with sharing credentials while minimizing the risk that the credentials will be compromised. What should you do?
       a. Create a service account with appropriate permissions. Authenticate the Spark Cluster and the web application as direct requests and share the service account key.
       b. Create a service account with appropriate permissions. Have the Spark Cluster and the web application authenticate as delegated requests, and share the short-lived service account credential as a JWT. 
       c. Create a service account with appropriate permissions. Authenticate the Spark Cluster and the web application as a delegated request, and share the service account key. 
       d. Create a service account with appropriate permissions. Have the Spark Cluster and the web application authenticate as a direct request, and share the short-lived service account credentials as XML tokens.
-      Ans. b
+      Ans. B
         - Delegated requests allow a service account to authenticate into a chain of services
         - Using short-lived service account credentials provides limited access to trusted services.
 
@@ -184,6 +189,9 @@ Module 1 Configuring Access
       Ans. d(wrong)
         - While applying roles to Google Groups is a best practice, the reauthenticationRequired permission does not exist. Your set reauthentication policies are configured in the Admin console. 
 
+      B
+        - Session control settings are configured in the Admin console. These settings will be set at the organization level and will include all project owners and billing administrators in the organization. 
+
     7. Cymbal Bank’s organizational hierarchy divides the Organization into departments. The Engineering Department has a ‘product team’ folder. This folder contains folders for each of the bank’s products. Each product folder contains one Google Cloud Project, but more may be added. Each project contains an App Engine deployment. 
     Cymbal Bank has hired a new technical product manager and a new web developer. The technical product manager must be able to interact with and manage all services in projects that roll up to the Engineering Department folder. The web developer needs read-only access to App Engine configurations and settings for a specific product. How should you provision the new employees’ roles into your hierarchy following principles of least privilege?
       A.Assign the Project Editor role in each individual project to the technical product manager. Assign the Project Editor role in each individual project to the web developer.
@@ -193,6 +201,8 @@ Module 1 Configuring Access
       Ans. d(wrong)
       - Although the correct permissions are assigned to the technical product manager, the web developer is provided permissions that are overly permissive. Custom roles are also not required because the App Engine Deployer role gives the web developer all the required permissions. 
 
+      C
+        -  Because the technical product manager must be able to work with services across all projects, you should provide permissions at the Department folder level. The web developer should only be able to administer App Engine deployments in their product folder.
 
     8. Cymbal Bank’s organizational hierarchy divides the Organization into departments. The Engineering Department has a ‘product team’ folder. This folder contains folders for each of the bank’s products. One folder titled “analytics” contains a Google Cloud Project that contains an App Engine deployment and a Cloud SQL instance. 
     A team needs specific access to this project. The team lead needs full administrative access to App Engine and Cloud SQL. A developer must be able to configure and manage all aspects of App Engine deployments. There is also a code reviewer who may periodically review the deployed App Engine source code without making any changes. What types of permissions would you provide to each of these users?
@@ -200,31 +210,112 @@ Module 1 Configuring Access
       b.Assign the basic ‘App Engine Admin’ and ‘Cloud SQL Admin” roles to the team lead. Assign the ‘App Engine Admin’ role to the developer. Assign the ‘App Engine Code Viewer’ role to the code reviewer. Assign all these permissions at the analytics project level. 
       c.Create custom roles for all three user types at the project level. For the team lead, provide all appengine.* and cloudsql.* permissions. For the developer, provide appengine.applications.* and appengine.instances.* permissions. For the code reviewer, provide the appengine.instances.* permissions. 
       d.Assign the basic ‘Editor’ role to the team lead. Create a custom role for the developer. Provide all appengine.* permissions to the developer. Provide the predefined ‘App Engine Code Viewer’ role to the code reviewer. Assign all these permissions at the “analytics” folder level.
-      Ans. d(wrong)
+      Ans. B 
+        - Assign the basic ‘App Engine Admin’ and ‘Cloud SQL Admin” roles to the team lead. Assign the ‘App Engine Admin’ role to the developer. Assign the ‘App Engine Code Viewer’ role to the code reviewer. Assign all these permissions at the analytics project level. 
+
+      d(wrong)
       - The basic ‘Editor’ role is too coarse-grained for the team lead. The Developer needs the predefined role of ‘App Engine Admin’. You can assign the ‘App Engine Code Viewer’ for the code reviewer; a custom role is not required. Permissions also need to be set at the project, not folder, level.
+
+      
 
     9. Cymbal Bank is divided into separate departments. Each department is divided into teams. Each team works on a distinct product that requires Google Cloud resources for development. How would you design a Google Cloud organization hierarchy to best match Cymbal Bank’s organization structure and needs?
       a.Create an Organization node. Under the Organization node, create Department folders. Under each Department, create Product folders. Under each Product, create Teams folders. In the Teams folder, add Projects. 
       b.Create an Organization node. Under the Organization node, create Department folders. Under each Department, create Product folders. Add Projects to the Product folders. 
       c.Create an Organization node. Under the Organization node, create Department folders. Under each Department, create Teams folders. Add Projects to the Teams folders. 
       d.Create an Organization node. Under the Organization node, create Department folders. Under each Department, create a Teams folder. Under each Team, create Product folders. Add Projects to the Product folders. 
-      Ans. B(wrong)
-      - This hierarchy is missing the Teams layer.
+      Ans. D
+        - epartments have teams, which work on products. This hierarchy best fits Cymbal Bank’s organization structure.
+      
+      B(wrong)
+        - This hierarchy is missing the Teams layer.
 
     10. Cymbal Bank has a team of developers and administrators working on different sets of Google Cloud resources. The Bank’s administrators should be able to access the serial ports on Compute Engine Instances and create service accounts. Developers should only be able to access serial ports. How would you design the organization hierarchy to provide the required access?
       a.Deny Serial Port Access and Service Account Creation at the Organization level. Create an ‘admin’ folder and set enforced: false for constraints/compute.disableSerialPortAccess. Create a new ‘dev’ folder inside the ‘admin’ folder, and set enforced: false for constraints/iam.disableServiceAccountCreation. Give developers access to the ‘dev’ folder, and administrators access to the ‘admin’ folder.
       b.Deny Serial Port Access and Service Account Creation at the organization level. Create a ‘dev’ folder and set enforced: false for constraints/compute.disableSerialPortAccess. Create a new ‘admin’ folder inside the ‘dev’ folder, and set enforced: false for constraints/iam.disableServiceAccountCreation. Give developers access to the ‘dev’ folder, and administrators access to the ‘admin’ folder.
       c.Deny Serial Port Access and Service Account Creation at the organization level. Create a ‘dev’ folder and set enforced: true for constraints/compute.disableSerialPortAccess and enforced: true for constraints/iam.disableServiceAccountCreation. Create a new ‘admin’ folder inside the ‘dev’ folder, and set enforced: false for constraints/iam.disableServiceAccountCreation. Give developers access to the ‘dev’ folder, and administrators access to the ‘admin’ folder.
       d.Allow Serial Port Access and Service Account Creation at the organization level. Create a ‘dev’ folder and set enforced: true for constraints/iam.disableServiceAccountCreation. Create another ‘admin’ folder that inherits from the parent inside the organization node. Give developers access to the ‘dev’ folder, and administrators access to the ‘admin’ folder.
-      Ans. d(wrong)
-      - Allowing Serial Port Access and Service Account Creation at the organization level defeats the problem statement, which specifies that only the bank’s Administrators should be able to access the serial ports on Compute Engine Instances and create service accounts. You should ‘DENY’ the permissions at the organization level and enable them at the folder or Project level.
-
+      Ans. B
+        - These organizational constraints will prevent all users from accessing serial ports on Compute Engine instances and creating service accounts.
+        - You can override these constraints in a new folder by setting the common constraint for serial port access.
+        - Creating another folder inside a parent folder will allow you to inherit the constraint and will allow you to add additional constraints to create a service account
+        - Accountdmins and developers are added appropriately.
+      
+      D(wrong)
+        - Allowing Serial Port Access and Service Account Creation at the organization level defeats the problem statement, which specifies that only the bank’s Administrators should be able to access the serial ports on Compute Engine Instances and create service accounts. You should ‘DENY’ the permissions at the organization level and enable them at the folder or Project level.
 
     First take
       4/10
 
+    Planning Cymbal Bank's cloud identity and access management
+    Role
+      - secure the cloud env and tje 
+
+    Knowledge Check
+    Practice quiz
+    1. Which tool will Cymbal Bank use to synchronize their identities from their on-premise identity management system to Google Cloud?
+      - Google Cloud Directory Sync
+        - synchronize identities from their on-premises Active Directory system to Google Cloud.
+
+      
+      - Cloud Identity
+        - is Google’s identity management system and can’t be used to synchronize external identities to Google Cloud, although it can receive imported identities.
+    
+    2. Which feature of Google Cloud will Cymbal Bank use to control the source locations and times that authorized identities will be able to access resources?
+      - IAM Conditions
+        - let Cymbal Bank control when or from where authorized identities can access resources.
+
+      - IAM Roles 
+        - are necessary to authorize identities to access resources, but can’t be used alone to control when or from where the authorized identities can access the resources.
+
+      - Service Accounts 
+        - are service identities in Google Cloud, and can’t be used to control when or from where authorized identities can access resources.
+
+      - Identity-aware Proxy
+        -  is a service that can be used to provide authentication and authorization for access to resources.
 
 Module 2 Securing Communications and Establishing Boundary Protection
+  Securing Cymbal Bank's Network resources
+
+  Diagonistic questions
+  Practice Exam
+  1. Cymbal Bank has published an API that internal teams will use through the HTTPS load balancer. You need to limit the API usage to 200 calls every hour. Any exceeding usage should inform the users that servers are busy. Which gcloud command would you run to throttle the load balancing for the given specification?
+    A. gcloud compute security-policies rules create priority 
+      --security-policy sec-policy    
+
+      --src-ip-ranges=source-range    
+
+      --action=rate-based-ban 
+
+      --rate-limit-threshold-count=200 
+
+      --rate-limit-threshold-interval-sec=3600 
+
+      --conform-action=deny 
+
+      --exceed-action=deny-403    
+
+      --enforce-on-key=HTTP-HEADER
+    B. Create service accounts for the application and database. Create a firewall rule using:
+      gcloud compute firewall-rules create ALLOW_MONGO_DB 
+
+        --network network-name 
+
+        --allow TCP:27017 
+
+        --source-service-accounts web-application-service-account 
+
+        --target-service-accounts database-service-account
+    C.
+    D.
+    Ans . 
+
+  2.
+    -
+
+  3.
+    -
+
+  4.
 
 Module 3 Ensuring Data Protection
 
