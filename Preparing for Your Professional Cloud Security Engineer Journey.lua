@@ -273,51 +273,396 @@ Module 1 Configuring Access
       - Identity-aware Proxy
         -  is a service that can be used to provide authentication and authorization for access to resources.
 
+  Module 1 Configuring Access to read
+	4/10
+
+	Question 2 asked you to create dynamic groups in Cloud Identity
+
+	1.1 Managing Cloud Identity
+
+	Considerations include: 
+		● Configuring Google Cloud Directory Sync and third-party connectors 
+		● Managing a super administrator account 
+		● Automating the user lifecycle management process 
+		● Administering user accounts and groups programmatically 
+		● Configuring Workforce Identity Federation
+
+	
+	To read:
+		● https://support.google.com/a/answer/10286834
+		● https://cloud.google.com/identity/docs/how-to/create-dynamic-groups
+		● https://support.google.com/a/answer/10427204
+
+
+	Summary:
+		Cloud Identity 
+			- supports creating groups 
+			- and then placing users inside those groups.
+		
+		Groups 
+			- help with 
+				- managing permissions
+				- access controls,
+				- organizational policies.
+		
+		In Dynamic Groups, 
+			- users are automatically managed and 
+			- added based on 
+				- Identity attributes, such as department.
+
+	Additional:	
+		● https://cloud.google.com/architecture/identity/federating-gcp-with-active-direct
+		ory-synchronizing-user-accounts
+		● https://support.google.com/a/answer/6126578?hl=en#:~:text=Configuration%20Manager%20is%20a%20step,test%2C%20and%20run%20a%20synchronization
+		● https://support.google.com/a/answer/10286834
+		● https://cloud.google.com/identity/docs/how-to/create-dynamic-groups
+		● https://support.google.com/a/answer/10427204
+	
+	Question 6 tested your knowledge of the steps to create custom IAM roles.
+
+	1.3 Managing authentication
+	
+	Considerations include: 
+		● Creating a password and session management policy for user accounts 
+		● Setting up Security Assertion Markup Language (SAML) and OAuth 
+		● Configuring and enforcing two-step verification
+
+	To read:
+		● https://support.google.com/a/answer/9368756?hl=en
+
+	Summary:
+		As an administrator, you can control how long different users can access the Google
+		Cloud console and Cloud SDK without having to reauthenticate. For example, you
+		might want users with elevated privileges, like project owners, billing administrators,
+		or others with administrator roles, to reauthenticate more frequently than regular
+		users. If you set a session length, they’re prompted to sign in again to start a new 
+		session.
+		
+		The session length setting applies to:
+			● The Google Cloud console
+			● The gcloud command-line tool (Cloud SDK)
+			● Any applications (including third-party applications, or your own applications)
+			that require user authorization for Google Cloud scopes. To review the apps
+			requiring Google Cloud scopes in the Apps access control UI, see Control
+			which third-party & internal apps access Google Workspace data.
+
+	Additional:	
+		● https://cloud.google.com/apigee/docs/api-platform/system-administration samloverview
+		● https://support.google.com/a/answer/60224
+		● https://support.google.com/a/answer/10723804
+		● https://support.google.com/a/answer/6369487
+		● https://cloud.google.com/iam/docs/creating-custom-roles
+		● https://cloud.google.com/iam/docs/understanding-custom-roles
+		● https://cloud.google.com/iam/docs/understanding-roles#billing-roles
+
+	1.4 Managing and implementing authorization controls 
+
+	Considerations include: 
+		● Managing privileged roles and separation of duties with Identity and Access Management (IAM) roles and permissions 
+		● Managing IAM and access control list (ACL) permissions 
+		● Granting permissions to different types of identities, including using IAM conditions and IAM deny policies 
+		● Designing identity roles at the organization, folder, project, and resource level ● Configuring Access Context Manager 
+		● Applying Policy Intelligence for better permission management 
+		● Managing permissions through groups
+
+	Question 7 tested your understanding of using roles at different levels of an organizational hierarchy. 
+
+	To read:		
+		● https://cloud.google.com/resource-manager/docs/access-control-proj
+		● https://cloud.google.com/resource-manager/docs/access-control-org
+		● https://cloud.google.com/resource-manager/docs/access-control-folders
+	
+	Question 8 asked you to select basic, predefined, or custom IAM roles for a specific scenario.
+
+	Where to look:
+		● https://cloud.google.com/iam/docs/understanding-roles
+		● https://cloud.google.com/iam/docs/understanding-roles#app-engine-roles
+
+
+	Summary:
+		IAM roles are of 3 types: basic, predefined, and custom. Basic roles of ‘Owner,’
+		‘Editor,’ and ‘Viewer’ provide a large set of broad permissions that existed before IAM.
+		Most often, basic roles are not recommended because of the large number of
+		permissions they contain. Predefined roles limit the permissions and access that a
+		role has and are defined separately for each Google Cloud resource. Create custom
+		roles when the predefined roles provide more permission than required.
+
+
+	Additional:
+		● https://cloud.google.com/resource-manager/docs/access-control-proj
+		● https://cloud.google.com/resource-manager/docs/access-control-org
+		● https://cloud.google.com/resource-manager/docs/access-control-folders
+		● https://cloud.google.com/iam/docs/understanding-roles
+		● https://cloud.google.com/iam/docs/understanding-roles#app-engine-roles
+
+
+	1.5 Defining resource hierarchy
+	
+	Considerations include: 
+		● Creating and managing organizations at scale 
+		● Managing organization policies for organization folders, projects, and resources 
+		● Using resource hierarchy for access control and permissions inheritance
+
+
+	Question 9 asked you to create a resource hierarchy that aligns with a given organizational structure and access control requirements. Question 10 tested your knowledge of designing a hierarchy and policies to control access to Google Cloud resources.
+
+	Where to look:
+		https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy
+
+	Summary:
+		Organization hierarchy helps build an inheritance of policies and permissions.
+		Although Projects can be placed directly in an Organization, creating layers of folders
+		in between helps with managing different permissions for different access. You can
+		also use folders to derive an inheritance of policies and permissions.
+
+	Question 10 tested your knowledge of designing a hierarchy and policies to control access to Google Cloud resources.
+
+	Where to look:
+		● https://cloud.google.com/resource-manager/docs/creating-managing-organization
+		● https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organiz
+		ations
+
+	Summary:
+		Organization hierarchies allow you to place lists and boolean constraints. These
+		constraints can be inherited into folders and subsequently into sub-folders and
+		Projects.
+
+	Additional:	
+		● https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy
+		● https://cloud.google.com/resource-manager/docs/creating-managing-organization
+		● https://cloud.google.com/docs/enterprise/best-practices-for-enterprise-organizations
+
 Module 2 Securing Communications and Establishing Boundary Protection
   Securing Cymbal Bank's Network resources
+    - design network security
+    - configure network segmentation
+    - establish private connectivity
 
-  Diagonistic questions
+    To dos:
+      - Provide Layer 3 + Layer 4 DDoS defense
+        - HTTPS load balancer for layer 3 adn 4 protection
+      - Provide Layer 7 DDoS defense
+        - Cloud armor 
+      - Protect against SQL injection attacks
+        - Cloud armor 
+      - Protect against XSS injection attacks
+        - Cloud armor 
+      - Configure rules for filtering traffic
+        - Cloud armor 
+      - Ensure traffic arriving from public internet goes through:
+        - HTTPS LB
+        - Cloud armor for extra protection
+      - Users from public internet connect through 
+        - Identity-Aware roxy
+          - authentication and authorization
+      - Protect public DNS zones through
+        - Cloud DNS
+          - supports DNSSEC
+            - secure DNS resources and prevent attackers from manipulating DNS responses.
+          - ensures authenticated DNS responses to DNS requests
+          - automatically manages DNSSEC related DNS records
+          - integrates w/ DNSSEC at the domain registrar level
+
+      - use firewall rules to only 
+        - allow valid and expected traffic betwee workloads
+        - and block all other traffic
+        - stateful rules 
+          - handle requests in either the ingress or egress direction
+        - restric traffic to specific source and target SA
+        - hierarchical FW rules ensure uniform app of rules across projects
+
+      - Isolate networks to secure workloads
+        - cymbal bank will connect privately across projects using shared VPC and VPC peering.
+
+      - Keep traffic private where possible
+        - connect privately from on-premises into google cloud to google APIs or the wider internet
+        - cloud VPN adn interconnect
+        - google private access
+        - cloud NAT
+
+  Diagonistic questions 
   Practice Exam
   1. Cymbal Bank has published an API that internal teams will use through the HTTPS load balancer. You need to limit the API usage to 200 calls every hour. Any exceeding usage should inform the users that servers are busy. Which gcloud command would you run to throttle the load balancing for the given specification?
     A. gcloud compute security-policies rules create priority 
       --security-policy sec-policy    
-
       --src-ip-ranges=source-range    
-
       --action=rate-based-ban 
-
       --rate-limit-threshold-count=200 
-
       --rate-limit-threshold-interval-sec=3600 
-
       --conform-action=deny 
-
       --exceed-action=deny-403    
-
       --enforce-on-key=HTTP-HEADER
+    B. gcloud compute security-policies rules create priority 
+      --security-policy sec-policy    
+      --src-ip-ranges=source-range   
+      --action=throttle
+      --rate-limit-threshold-count=200 
+      --rate-limit-threshold-interval-sec=3600 
+      --conform-action=allow    
+      --exceed-action=deny-429 
+      --enforce-on-key=HTTP-HEADER 
+    C. gcloud compute security-policies rules create priority 
+      --security-policy sec-policy    
+      --src-ip-ranges="<source range>"    \
+      --action=rate-based-ban 
+      --rate-limit-threshold-count=200 
+      --rate-limit-threshold-interval-sec=3600 
+      --conform-action=allow 
+      --exceed-action=deny-500    
+      --enforce-on-key=IP 
+    D. gcloud compute security-policies rules create priority 
+      --security-policy sec-policy    
+      --src-ip-ranges=source-range   
+      --action=throttle    
+      --rate-limit-threshold-count=200 
+      --rate-limit-threshold-interval-sec=60 
+      --conform-action=deny 
+      --exceed-action=deny-404    
+      --enforce-on-key=HTTP-HEADER
+    Ans. b
+      - 
+    
+    A(Wrong)
+      - Rate-based-ban would be helpful if you wanted to disable the incoming services for a time period. 
+      - You need a throttle limit. Error 403 is incorrect; 
+      - it indicates invalid authorization, which is not your use case. 
+      - Action should be allowed, not denied.
+
+
+  2.Cymbal Bank is releasing a new loan management application using a Compute Engine managed instance group. External users will connect to the application using a domain name or IP address protected with TLS 1.2. A load balancer already hosts this application and preserves the source IP address. You are tasked with setting up the SSL certificate for this load balancer. What should you do?
+    A. Create a Google-managed SSL certificate. Attach a global dynamic external IP address to the internal HTTPS load balancer. Validate that an existing URL map will route the incoming service to your managed instance group backend. Load your certificate and create an HTTPS proxy routing to your URL map. Create a global forwarding rule that routes incoming requests to the proxy.
+    B. Create a Google-managed SSL certificate. Attach a global static external IP address to the external HTTPS load balancer. Validate that an existing URL map will route the incoming service to your managed instance group backend. Load your certificate and create an HTTPS proxy routing to your URL map. Create a global forwarding rule that routes incoming requests to the proxy.
+    C. Import a self-managed SSL certificate. Attach a global static external IP address to the TCP Proxy load balancer. Validate that an existing URL map will route the incoming service to your managed instance group backend. Load your certificate and create a TCP proxy routing to your URL map. Create a global forwarding rule that routes incoming requests to the proxy.
+    D. Import a self-managed SSL certificate. Attach a global static external IP address to the SSL Proxy load balancer. Validate that an existing URL map will route the incoming service to your managed instance group backend. Load your certificate and create an SSL proxy routing to your URL map. Create a global forwarding rule that routes incoming requests to the proxy.
+    Ans. B
+      - Attaching a global static external IP address will expose your load balancer to internet users. 
+      - Creating HTTPS proxy (and global forwarding rules) will help route the request to the existing backend.
+
+  3. Your organization has a website running on Compute Engine. This instance only has a private IP address. You need to provide SSH access to an on-premises developer who will debug the website from the authorized on-premises location only. How do you enable this?
+    A. Use Identity-Aware Proxy (IAP). Set up IAP TCP forwarding by creating ingress firewall rules on port 22 for TCP using the gcloud command.
+    B. Set up Cloud VPN. Set up an unencrypted tunnel to one of the hosts in the network. Create outbound or egress firewall rules. Use the private IP address to log in using a gcloud ssh command.
+    C. Use SOCKS proxy over SSH. Set up an SSH tunnel to one of the hosts in the network. Create the SOCKS proxy on the client side.
+    D. Use the default VPC’s firewall. Open port 22 for TCP protocol using the Google Cloud Console.
+    Ans. A
+      - IAP TCP forwarding establishes an encrypted tunnel that supports both SSH and RDP requests.
+
+  4. You have recently joined Cymbal Bank as a cloud engineer. You created a custom VPC network, selecting to use the automatic subnet creation mode and nothing else. The default network still exists in your project. You create a new Linux VM instance and select the custom VPC as the network interface. You try to SSH into your instance, but you are getting a “connection failed” error. What answer best explains why you cannot SSH into the instance?
+    A. You should have used the default network when setting up your instance. While custom networks support instance creation, they should only be used for internal communication.
+    B. You should have deleted the default network. When you have multiple VPCs in your project, Compute Engine can’t allow you to connect because overlapping IP ranges prevent the API from establishing a root connection.
+    C. You should have used custom subnet creation mode. Since the default VPC still exists, automatic mode created subnets in the same regions, which led to overlapping IP addresses.
+    D. You did not set up any firewall rules on your custom VPC network. While the default VPC comes with a predefined firewall rule that allows SSH traffic, these need to be added to any custom VPCs.
+    Ans. D
+      - You did not create any firewalls to allow SSH traffic. 
+
+  5. Cymbal Bank needs to connect its employee MongoDB database to a new human resources web application on the same network. Both the database and the application are autoscaled with the help of Instance templates. As the Security Administrator and Project Editor, you have been tasked with allowing the application to read port 27017 on the database. What should you do?
+    A. Create a user account for the database admin and a service account for the application. Create a firewall rule using:
+    gcloud compute firewall-rules create ALLOW_MONGO_DB 
+      --network network-name 
+      --allow TCP:27017 
+      --source-service-accounts web-application-service-account 
+      --target-service-accounts database-admin-user-account
     B. Create service accounts for the application and database. Create a firewall rule using:
-      gcloud compute firewall-rules create ALLOW_MONGO_DB 
+    gcloud compute firewall-rules create ALLOW_MONGO_DB 
+      --network network-name 
+      --allow TCP:27017 
+      --source-service-accounts web-application-service-account 
+      --target-service-accounts database-service-account
+    C. Create user accounts for the application and database. Create a firewall rule using:
+    gcloud compute firewall-rules create ALLOW_MONGO_DB 
+      --network network-name 
+      --deny UDP:27017 
+      --source-service-accounts web-application-user-account 
+      --target-service-accounts database-admin-user-account
+    D. Create service accounts for the application and database. Create a firewall rule using:
+    gcloud compute firewall-rules create ALLOW_MONGO_DB 
+      --network network-name 
+      --allow ICMP:27017 
+      --source-service-accounts web-application-service-account
+      --target-service-accounts database-service-account
+    Ans. B
+      - Use service accounts to automate the identification, authentication, and authorization process between the n-tier services. 
+      - Allow TCP protocol on the port for reading.
 
-        --network network-name 
+  6. Cymbal Bank has designed an application to detect credit card fraud that will analyze sensitive information. The application that’s running on a Compute Engine instance is hosted in a new subnet on an existing VPC. Multiple teams who have access to other VMs in the same VPC must access the VM. You want to configure the access so that unauthorized VMs or users from the internet can’t access the fraud detection VM. What should you do?
+    A. Use subnet isolation. Create a service account for the fraud detection engine. Create service accounts for each of the teams’ Compute Engine instances that will access the engine. Add a firewall rule using: 
+      gcloud compute firewall-rules create ACCESS_FRAUD_ENGINE 
+        --network <network name> 
+        --allow TCP:80 
+        --source-service-accounts <list of service accounts> 
+        --target-service-accounts <fraud detection engine’s service account>
+    B. Use target filtering. Create a tag called ‘app’, and assign the tag to both the source and the target. Create a firewall rule to allow all ingress communication on this tag.
+    C. Use subnet isolation. Create a service account for the fraud detection VM. Create one service account for all the teams’ Compute Engine instances that will access the fraud detection VM. 
+      Create a new firewall rule using:
+      gcloud compute firewall-rules create ACCESS_FRAUD_ENGINE 
+        --network <network name> 
+        --allow TCP:80 
+        --source-service-accounts <one service account for all teams>
+        --target-service-accounts <fraud detection engine’s service account>
+    D. Use target filtering. Create two tags called ‘app’ and ‘data’. Assign the ‘app’ tag to the Compute Engine instance hosting the Fraud Detection App (source), and assign the ‘data’ tag to the other Compute Engine instances (target). Create a firewall rule to allow all ingress communication on this tag.
+    Ans. A
+      - Using subnet isolation, you have to authorize every request entering your subnet. 
+      - The recommended solution is to create a firewall rule that allows only a limited set of service accounts to access the shared target.
 
-        --allow TCP:27017 
+  7. The data from Cymbal Bank’s loan applicants resides in a shared VPC. A credit analysis team uses a CRM tool hosted in the App Engine standard environment. You need to provide credit analysts with access to this data. You want the charges to be incurred by the credit analysis team. What should you do?
+    A. Add ingress firewall rules to allow NAT and Health Check ranges for App Engine standard environment in the Shared VPC network. Create a server-side connector in the Host Project using the Shared VPC Project ID. Verify that the connector is in a READY state. Create an ingress rule on the Shared VPC network to allow the connector using Network Tags or IP ranges.
+    B. Add egress firewall rules to allow SSH and/or RDP ports for the App Engine standard environment in the Shared VPC network. Create a client-side connector in the Service Project using the IP range of the target VPC. Verify that the connector is in a READY state. Create an egress rule on the Shared VPC network to allow the connector using Network Tags or IP ranges.
+    C. Add egress firewall rules to allow TCP and UDP ports for the App Engine standard environment in the Shared VPC network. Create either a client-side connector in the Service Project or a server-side connector in the Host Project using the IP Range or Project ID of the target VPC. Verify that the connector is in a READY state. Create an egress rule on the Shared VPC network to allow the connector using Network Tags or IP ranges.
+    D. Add ingress firewall rules to allow NAT and Health Check ranges for the App Engine standard environment in the Shared VPC network. Create a client-side connector in the Service Project using the Shared VPC Project ID. Verify that the connector is in a READY state. Create an ingress rule on the Shared VPC network to allow the connector using Network Tags or IP ranges.
+    Ans. D
+      - App Engine uses a fixed set of NAT and health check IP address ranges that must be permitted into the VPC. 
+      - Because the charges must be incurred by the credit analysis team, you need to create the connector on the client side.
 
-        --source-service-accounts web-application-service-account 
+  8. Cymbal Bank’s Customer Details API runs on a Compute Engine instance with only an internal IP address. Cymbal Bank’s new branch is co-located outside the Google Cloud points-of-presence (PoPs) and requires a low-latency way for its on-premises apps to consume the API without exposing the requests to the public internet. Which solution would you recommend?
+    A. Use Carrier Peering. Use a service provider to access their enterprise grade infrastructure to connect to the Google Cloud environment.
+    B. Use Partner Interconnect. Use a service provider to access their enterprise grade infrastructure to connect to the Google Cloud environment.
+    C. Use Dedicated Interconnect. Establish direct peering with one of Google’s nearby edge-enabled PoPs.
+    D. Use a Content Delivery Network (CDN). Establish direct peering with one of Google’s nearby edge-enabled PoPs.
+    Ans. B
+      - When you are co-located in one of the Google Cloud PoPs, use Direct Interconnect. 
+      - Otherwise, use Partner Interconnect to connect to Google Cloud with a private IP address.
 
-        --target-service-accounts database-service-account
-    C.
-    D.
-    Ans . 
+  9. An external audit agency needs to perform a one-time review of Cymbal Bank’s Google Cloud usage. The auditors should be able to access a Default VPC containing BigQuery, Cloud Storage, and Compute Engine instances where all the usage information is stored. You have been tasked with enabling the access from their on-premises environment, which already has a configured VPN. What should you do?
+    A. Use a Cloud VPN tunnel. Use your DNS provider to create DNS zones and records for private.googleapis.com. Connect the DNS provider to your on-premises network. Broadcast the request from the on-premises environment. Use a software-defined firewall to manage incoming and outgoing requests. 
+    B. Use Dedicated Interconnect. Configure a VLAN in the auditor's on-premises environment. Use Cloud DNS to create DNS zones and records for restricted.googleapis.com and private.googleapis.com. Set up on-premises routing with Cloud Router. Add custom static routes in the VPC to connect individually to BigQuery, Cloud Storage, and Compute Engine instances.
+    C. Use Partner Interconnect. Configure an encrypted tunnel in the auditor's on-premises environment. Use Cloud DNS to create DNS zones and A records for private.googleapis.com.
+    D. Use a Cloud VPN tunnel. Use Cloud DNS to create DNS zones and records for *.googleapis.com. Set up on-premises routing with Cloud Router. Use Cloud Router custom route advertisements to announce routes for Google Cloud destinations.
+    Ans. D
+      - Cloud VPN provides a cost-effective and easily set-up environment for on-premises users to access Google Cloud privately. 
+      - Using *.googleapis.com enables requests for both private.googleapis.com and restricted.googleapis.com
+      - Use Cloud Router to set up and announce Google Cloud routes on-premises.
 
-  2.
-    -
+  10. An ecommerce portal uses Google Kubernetes Engine to deploy its recommendation engine in Docker containers. This cluster instance does not have an external IP address. You need to provide internet access to the pods in the Kubernetes cluster. What configuration would you add?
+    A. Cloud NAT gateway, subnet primary IP address range for nodes, and subnet secondary IP address range for pods and services in the cluster 
+    B. Nginx load balancer, subnet secondary IP address range for nodes, and subnet secondary IP address range for pods and services in the cluster 
+    C. Cloud DNS, subnet primary IP address range for nodes, and subnet secondary IP address range for pods and services in the cluster 
+    D. Cloud VPN, subnet secondary IP address range for nodes, and subnet secondary IP address range for pods and services in the cluster 
+    ANS. A
+      - Cloud NAT gateways help provide internet access (outbound) without requiring a public IP address. 
 
-  3.
-    -
+  Knowledge Check
+  Quiz
+  1. Which tool will Cymbal Bank use to enforce authentication and authorization for services deployed to Google Cloud?
+    - Identity-Aware proxy
+      - provides authentication and authorization for services deployed to Google Cloud.
 
-  4.
+  2. How will Cymbal Bank enable resources with only internal IP addresses to make requests to the Internet?
+    - Cloud NAT 
+      - is primarily intended for enabling resources with only internal IP addresses to make requests to the Internet.
+
+    - Google private access
+      - allows resources with only internal IP addresses to make requests to Google APIs but not to the wider Internet.
 
 Module 3 Ensuring Data Protection
+
+  Knowledge Check
+  Quiz
+  1. Which tool will Cymbal Bank use to scan for, detect, and optionally transform sensitive data to prevent exposure?
+    - Sensitive Data Protection
+      - intended for scanning, detecting and optionally transforming sensitive data to prevent exposure.
+
+  2. What feature will allow Cymbal Bank to delete or change the storage class of objects in Cloud Storage buckets?
+    - Lifecycle management rules
+      - automatically delete or change the storage class of objects based on age or other factors.
 
 Module 4 Managing Operations
 
