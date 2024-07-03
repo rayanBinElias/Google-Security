@@ -652,7 +652,144 @@ Module 2 Securing Communications and Establishing Boundary Protection
     - Google private access
       - allows resources with only internal IP addresses to make requests to Google APIs but not to the wider Internet.
 
+  Question 1: securing load balancers and backends using firewall
+  2.1 Designing and configuring perimeter security
+    Considerations include: 
+      ● Configuring network perimeter controls (firewall rules, hierarchical firewall policies, Identity-Aware Proxy (IAP), load    balancers, and Certificate Authority Service) 
+      ● Differentiating between private and public IP addressing 
+      ● Configuring web application firewall (Google Cloud Armor) 
+      ● Deploying Secure Web Proxy ● Configuring Cloud DNS security settings 
+      ● Continually monitoring and restricting configured APIs
+
+  Where to look:
+    ● https://cloud.google.com/sdk/gcloud/reference/compute/security-policies/rules/update
+    ● https://cloud.google.com/sdk/gcloud/reference/compute/security-policies
+
+  Summary:
+    Google Cloud Armor provides capabilities to help protect your Google Cloud
+    applications against a variety of Layer 3 and Layer 7 attacks. Google Cloud Armor
+    security policies filter incoming traffic that is destined to global external HTTP(S) load
+    balancers or global external HTTP(S) load balancer (classic)s. Rate-based rules help
+    you protect your applications from a large volume of requests that flood your
+    instances and block access for legitimate users.
+
+  Additional:
+    ● https://cloud.google.com/sdk/gcloud/reference/compute/security-policies/rules/update
+    ● https://cloud.google.com/sdk/gcloud/reference/compute/security-policies
+    ● https://cloud.google.com/load-balancing/docs/https/ext-https-lb-simple
+    ● https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managedcerts#load-balancer
+    ● https://cloud.google.com/iap/docs/using-tcp-forwarding#preparing_your_project_for_tcp_forwarding
+    ● https://cloud.google.com/solutions/connecting-securely#preventing_vms_from_being_reached_from_the_public_internet
+
 Module 3 Ensuring Data Protection
+
+  Diagnoistic questions
+  1. Cymbal Bank has hired a data analyst team to analyze scanned copies of loan applications. Because this is an external team, Cymbal Bank does not want to share the name, gender, phone number, or credit card numbers listed in the scanned copies. You have been tasked with hiding this PII information while minimizing latency. What should you do?
+    - Use the Cloud Vision API to perform text extraction from scanned images. Redact the text using the Cloud Natural Language API with regular expressions.
+    - Use the Cloud Vision API to perform optical code recognition (OCR) from scanned images. Redact the text using the Cloud Data Loss Prevention (DLP) API with regular expressions.
+    - Use the Cloud Vision API to perform optical code recognition (OCR) from scanned images. Redact the text using the Cloud Natural Language API with regular expressions.
+    - Use the Cloud Data Loss Prevention (DLP) API to make redact image requests. Provide your project ID, built-in infoTypes, and the scanned copies when you make the requests.
+    Ans. A
+      - the DLP API can be directly used for image redaction. Built-in infoTypes already include name, gender, phone number, and credit card numbers.
+
+    B(wrong)
+      - The Cloud Vision API’s OCR can be used to extract text from images and then you can redact the text using the DLP API, but this process adds a layer of latency because it involves two steps.  
+      - You can create custom infoTypes with regular expressions, but these are recommended only in situations where standard infoTypes aren’t supported, such as medical account numbers.
+
+  2. Cymbal Bank needs to statistically predict the days customers delay the payments for loan repayments and credit card repayments. Cymbal Bank does not want to share the exact dates a customer has defaulted or made a payment with data analysts. Additionally, you need to hide the customer name and the customer type, which could be corporate or retail. How do you provide the appropriate information to the data analysts?
+    - Generalize all dates to year and month with bucketing. Use the built-in infoType for customer name. Use a custom infoType for customer type with regular expression.
+    - Generalize all dates to year and month with date shifting. Use a predefined infoType for customer name. Use a custom infoType for customer type with regular expression.
+    - Generalize all dates to year and month with bucketing. Use the built-in infoType for customer name. Use a custom infoType for customer type with a custom dictionary.
+    - Generalize all dates to year and month with date shifting. Use a predefined infoType for customer name. Use a custom infoType for customer type with a custom dictionary.
+    Ans. D
+      - If your data is stored in a valid schema, date shifting will shift all dates logically. Built-in infoTypes allow a range of locale-specific and globally identifiable sensitive information pieces like email IDs and phone numbers. Custom dictionaries can be used with a custom infoType that contains predefined key-value pairs.
+
+
+  3. Cymbal Bank stores customer information in a BigQuery table called ‘Information,’ which belongs to the dataset ‘Customers.’ Various departments of Cymbal Bank, including loan, credit card, and trading, access the information table. Although the data source remains the same, each department needs to read and analyze separate customers and customer-attributes. You want a cost-effective way to configure departmental access to BigQuery to provide optimal performance. What should you do?
+    - Secure data with classification. Open the Data Catalog Taxonomies page in the Google Cloud Console. Create policy tags for required columns and rows. Provide the bigquery.user role to each department’s required users. Provide policy tags access to each department separately.
+    - Create separate datasets for each department. Create authorized functions in each dataset to perform required aggregations. Write transformed data to new tables for each department separately. Provide the bigquery.dataViewer role to each department’s required users.
+    - Create an authorized dataset in BigQuery’s Explorer panel. Write Customers’ table metadata into a JSON file, and edit the file to add each department’s Project ID and Dataset ID. Provide the bigquery.user role to each department’s required users.
+    - Create separate datasets for each department. Create views for each dataset separately. Authorize these views to access the source dataset. Share the datasets with departments. Provide the bigquery.dataViewer role to each department’s required users.
+    Ans. D
+      - Using authorized views is the right approach. 
+      - Create a separate dataset for each department, and provide access to views containing filtered rows and columns.
+
+  4. Cymbal Bank has a Cloud SQL instance that must be shared with an external agency. The agency’s developers will be assigned roles and permissions through a Google Group in Identity and Access Management (IAM). The external agency is on an annual contract and will require a connection string, username, and password to connect to the database. How would you configure the group’s access?
+    - Use Cloud Key Management Service. Use the destination IP address and Port attributes to provide access for developers at the external agency. Remove the IAM access after one year and rotate the shared keys. Add cloudkms.cryptoKeyEncryptorDecryptor role for the group that contains the external developers.
+    - Use Secret Manager. Use the duration attribute to set the expiry period to one year. Add the secretmanager.secretAccessor role for the group that contains external developers.
+    - Use Secret Manager for the connection string and username, and use Cloud Key Management Service for the password. Use tags to set the expiry period to the timestamp one year from now. Add secretmanager.secretVersionManager and secretmanager.secretAccessor roles for the group that contains external developers.
+    - Use Secret Manager. Use the resource attribute to set a key-value pair with key as duration and values as expiry period one year from now. Add secretmanager.viewer role for the group that contains external developers.
+    Ans. A
+      - Secret Manager supports time types such as absolute time duration to invoke and revoke access. The Secret Assessor role is required to read the stored secrets in Secret Manager.
+
+    D(Wrong)
+      - Secret Manager supports time types such as absolute time duration to invoke and revoke access. 
+      - However, the Viewer role for Secret Manager does not allow users to use secrets.
+
+  5. Cymbal Bank calculates employee incentives on a monthly basis for the sales department and on a quarterly basis for the marketing department. The incentives are released with the next month’s salary. Employee’s performance documents are stored as spreadsheets, which are retained for at least one year for audit. You want to configure the most cost-effective storage for this scenario. What should you do? 
+    - Import the spreadsheets to BigQuery, and create separate tables for Sales and Marketing. Set table expiry rules to 365 days for both tables. Create jobs scheduled to run every quarter for Marketing and every month for Sales.
+    - Upload the spreadsheets to Cloud Storage. Select the Nearline storage class for the sales department and Coldline storage for the marketing department. Use object lifecycle management rules to set the storage class to Archival after 365 days. Process the data on BigQuery using jobs that run monthly for Sales and quarterly for Marketing.
+    - Import the spreadsheets into Cloud Storage and create NoSQL tables. Use App Engine cron jobs to run monthly for Sales and quarterly for Marketing. Use a separate job to delete the data after 1 year.
+    - Import the spreadsheets to Cloud SQL, and create separate tables for Sales and Marketing. For Table Expiration, set 365 days for both tables. Use stored procedures to calculate incentives. Use App Engine cron jobs to run stored procedures monthly for Sales and quarterly for Marketing.
+    Ans. B
+      - Cloud Storage storage classes let you lower the storage cost for data that you access less frequently and don’t require for real-time applications. Use object lifecycle rules to change storage classes and expire data. For processing, use BigQuery, which has a free daily quota. 
+
+  6. Cymbal Bank uses Google Kubernetes Engine (GKE) to deploy its Docker containers. You want to encrypt the boot disk for a cluster running a custom image so that the key rotation is controlled by the Bank. GKE clusters will also generate up to 1024 randomized characters that will be used with the keys with Docker containers. What steps would you take to apply the encryption settings with a dedicated hardware security layer? 
+    - Create a new GKE cluster with customer-managed encryption and HSM enabled. Deploy the containers to this cluster. Delete the old GKE cluster. Use Cloud HSM to generate random bytes and provide an additional layer of security.
+    - Create a new key ring using Cloud Key Management Service. Extract this key to a certificate. Use the Google Cloud Console to update the Kubernetes configuration. Validate using MAC digital signatures, and use a startup script to generate random bytes.
+    - In the Google Cloud console, navigate to Google Kubernetes Engine. Select your cluster and the boot node inside the cluster. Enable customer-managed encryption. Use Cloud HSM to generate random bytes and provide an additional layer of security.
+    - Create a new key ring using Cloud Key Management Service. Extract this key to a certificate. Use the kubectl command to update the Kubernetes configuration. Validate using MAC digital signatures, and use a startup script to generate random bytes.
+    Ans. B
+      - Building a new cluster and deleting the old one is the solution. Cloud HSM provides an additional layer of dedicated hardware security and generates random bytes of up to 1024 characters.
+    
+    D(Wrong)
+      - Validating using MAC digital signatures is not helpful because they are used to verify messages. However, a startup script can be used to generate a random sequence.
+
+  7. Cymbal Bank needs to migrate existing loan processing applications to Google Cloud. These applications transform confidential financial information. All the data should be encrypted at all stages, including sharing between sockets and RAM. An integrity test should also be performed every time these instances boot. You need to use Cymbal Bank’s encryption keys to configure the Compute Engine instances. What should you do?
+    - Create a Shielded VM instance with Customer-Supplied Encryption Keys. In Cloud Logging, collect all logs for earlyBootReportEvent.
+    - Create a Confidential VM instance with Customer-Supplied Encryption Keys. In Cloud Logging, collect all logs for sevLaunchAttestationReportEvent.
+    - Create a Confidential VM instance with Customer-Managed Encryption Keys. In Cloud Logging, collect all logs for earlyBootReportEvent.
+    - Create a Shielded VM instance with Customer-Managed Encryption Keys. In Cloud Logging, collect all logs for sevLaunchAttestationReportEvent.
+    Ans. A
+      - Use Customer-Supplied Encryption Keys because you need to use your own encryption keys. Confidential VMs have a unique launch attestation event that can be read from Cloud Logging.
+
+    D(Wrong)
+      - Customer-Managed Encryption Keys only let you manage key rotation, but you need to use your own encryption keys. However, Confidential VMs have a unique launch attestation event that can be read from Cloud Logging, so sevLaunchAttestationReportEvent is the correct choice.
+      
+  8. You are building an AI model on Google Cloud to analyze customer data and predict purchase behavior. This model will have access to sensitive information like purchase history and demographics. To protect this data and prevent misuse of the model, what THREE security controls are most important to implement
+    - Store all model training data in BigQuery with public access for transparency.
+    - Monitor the model's performance for anomalies and biases, then manually intervene if needed.
+    - Enable Google Cloud Armor on your deployed model to block malicious requests.
+    - Deploy the model in a region with the highest data security standards.
+    - Configure IAM roles to grant full access to the model for all Google Cloud users.
+    Ans. B, C D
+      - Proactive monitoring and human oversight are essential for detecting potential misuse, bias, or unintended consequences of the AI model.
+      - This actively protects the model from external threats and unauthorized access attempts, which is crucial for preventing data exploitation.
+      - This ensures compliance with regional regulations and data residency requirements, further safeguarding sensitive customer information.
+
+  9. You're building a machine learning model on Google Cloud. You're choosing between two options: managing the infrastructure yourself (IaaS) or using Google's managed services (PaaS). To ensure the best security posture for both the model and its data, which TWO factors should you prioritize when defining security requirements for each hosting option?
+    - Physical server hardening and security patches
+    - Granular access controls and permissions
+    - Network traffic inspection and intrusion detection
+    - Compliance with internal security policies
+    - Data location and residency restrictions
+    Ans. B and D(Wrong)
+      - Correct! Controlling who accesses the model and data is crucial for securing both IaaS and PaaS environments.
+      - That’s incorrect. Internal security policies are important, but they apply equally to both IaaS and PaaS models and don't differentiate the specific security considerations for each hosting option.
+
+    E
+      -  In PaaS, Google manages the infrastructure, so you need to ensure data residency aligns with your compliance and privacy requirements.
+
+  10. You are tasked with developing an AI system on Google Cloud for a telecommunications business. This AI system will conduct sentiment analysis on conversations agents have with customers, and provide conversational recommendations to improve customer satisfaction in the future. What AI/ML-specific security controls do you need to plan for when developing this system?
+    - Deploy your AI solution using managed instance groups (MIGs). These have baked in security controls specific to running AI workloads. 
+    - Leverage an AI model-specific threat detection scanner. Threats between AI systems and non-AI systems have very little in common.  
+    - AI systems are more interconnected than non-AI systems. Prepare for new attack vectors, as attackers can exploit vulnerabilities in one system to attack another.
+    - Select Google Cloud AI services that leverage a PaaS model. These are the only ones that can guarantee a secure-by-design foundation. 
+    Ans. C
+      - AI systems are more interconnected. AI systems are often connected to other systems, inside and outside of an organization. This interconnectedness can create new attack vectors, as attackers can exploit vulnerabilities in one system to attack another.
+
+    B(Wrong)
+      - Many threats between AI systems and non-AI systems are the same. Both systems need to be protected from unauthorized access, modification, and destruction of data — as well as other common threats.
 
   Knowledge Check
   Quiz
@@ -665,6 +802,22 @@ Module 3 Ensuring Data Protection
       - automatically delete or change the storage class of objects based on age or other factors.
 
 Module 4 Managing Operations
+
+  Knowledge Check
+  Quiz
+  1. Which feature of Google Cloud will Cymbal Bank use to prevent unauthorized container images from being deployed into production environments?
+    - Binary Authorization
+      -  Binary Authorization provides a system for applying attestations to container images to prevent unauthorized container images from being deployed into infrastructure.
+
+  2. How will Cymbal Bank be able to determine who performed a particular administrative action and when?
+    - Audit logs
+      - include a capture of all administrative actions, including the identity making the request and when it occurred.
+
+    - Cloud monitoring
+      - Cloud Monitoring provides visualization and alerting of metrics and can’t be used for determining who performed administrative actions.
+
+    - VPC flow logs
+      - VPC flow logs provide logging of network traffic and can’t be used for determining who performed administrative actions.
 
 Module 5 Supporting ocmpliance Requirements
 
