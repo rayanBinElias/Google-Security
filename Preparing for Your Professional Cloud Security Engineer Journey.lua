@@ -821,4 +821,22 @@ Module 4 Managing Operations
 
 Module 5 Supporting ocmpliance Requirements
 
-Module 6 Your NExt steps
+  Knowledge Check
+  Quiz
+  1. Cymbal Bank has a compliance requirement to have control over key lifecycle and rotation periods. Which Google Cloud feature can they leverage to satisfy that requirement?å
+    A. VPC service controls
+    B. CMEK with Cloud KMS
+    C. Audit logs
+    D. PCI-DSS compliance
+    ANS. B
+      - CMEK with Cloud KMS provides the ability to set key rotation and lifecycle configuration and select which keys are used for which data.
+
+  2. Cymbal Bank has compliance requirements to ensure certain data is stored, processed, and never transferred or used outside of Europe. Which Google Cloud feature can help them achieve this?
+    A. VPC service controls
+    B. Organization policy constraints
+    C. Audit logs
+    D. Sensitive Data Protection
+    ANS. A
+      - VPC service controls can be used to restrict access to data to specific VPCs with subnets in specific regions, and can thereby facilitate data residency and location-based access requirements.
+      
+Module 6 Your Next steps
