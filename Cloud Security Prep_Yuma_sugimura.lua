@@ -21,11 +21,29 @@ Shared Responsibility Model Resources to read
   Enterprise foundations blueprint 
     - https://cloud.google.com/architecture/security-foundations
 
-  PCI DSS
-    - Google Cloud - How does Google Cloud support my organization's PCI DSS compliance efforts?
+    [Deployable Terraform assets](https://github.com/terraform-google-modules/terraform-example-foundation)
+      - terraform-example-foundation GitHub repository.
 
-  AWS sHared responsibility Model
+    A defense-in-depth security model
+
+  PCI DSS(Payment Card Industry Data Security Standard )
+    - Google Cloud 
+      - How does Google Cloud support my organization's PCI DSS compliance efforts?
+
+    -  The PCI Security Standards Council is a global forum for the ongoing development, enhancement, storage, dissemination, and implementation of security standards for account data protection
+  
+    [PCI Data Security Standard compliance](https://cloud.google.com/architecture/pci-dss-compliance-in-gcp?hl=en)
+      - [GKE](https://cloud.google.com/architecture/pci-dss-and-gke-guide?hl=en)
+
+  AWS Shared responsibility Model
     - https://aws.amazon.com/jp/compliance/shared-responsibility-model/
+
+  Google Managed responsibility
+    Physical Data Center
+    Up to OS layer
+
+  Your Responsibility
+    - App layer
 
 Organizational policies
   - Policy inheritance between parent and child resources
@@ -49,25 +67,69 @@ Organizational policies
       - rules restricting the creation of service account keys 
 
 Cloud Identity and identity federation
+  - familiar with how to synchronize Active Directory with Cloud Identity.
+
+  Google Cloud Directory sync
+    - https://support.google.com/a/answer/106368
+    - overview of account synchronization between Active Directory and Cloud Identity (Google Workspace) 
+  
+  Active Directory
+    - how to authenticate to Google Cloud from an external Identity Provider (IdP)
+
+  Overview of SSO
+    - SAML(OAuth)
+
+  Best practices for federating Google Cloud with an external identity provider .
+    - https://cloud.google.com/architecture/identity/best-practices-for-federating
+
+  Understand the general relationship between
+    - Identity Provider (IdP) and Service Provider (SP)
+
+  situations
+    - Synchronizing Active Directory and Cloud Identity
+      - What IAM permissions should I grant to the Google account created by synchronization?
+
 Identity and Access Management (IAM)
+
 VPC
+
 Concepts to keep in mind
+
 point
+
 References
+
 Cloud Interconnect (Cloud VPN) and Private Google Access
+
 encryption
+
 Cloud KMS (Key Management Service)
+
 Envelope Encryption
+
 Default and CMEK encryption
+
 Confidential Computing
+
 Preventing personal information leaks
+
 Cloud DLP
+
 Cloud DLP anonymization feature
+
 DevSecOps (CI/CD)
+
 Other services you should keep in mind
+
 Cloud Armor
+
 Cloud Load Balancing
+
 VPC Service Controls
+
 Security Command Center
+
+
 Network Intelligence Center
+
 Secret Manager

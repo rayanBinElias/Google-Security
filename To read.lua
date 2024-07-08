@@ -49,7 +49,7 @@ Module 1 Configuring Access to read
 	Question 6 tested your knowledge of the steps to create custom IAM roles.
 
 	1.3 Managing authentication
-	
+
 	Considerations include: 
 		● Creating a password and session management policy for user accounts 
 		● Setting up Security Assertion Markup Language (SAML) and OAuth 
@@ -64,7 +64,8 @@ Module 1 Configuring Access to read
 		might want users with elevated privileges, like project owners, billing administrators,
 		or others with administrator roles, to reauthenticate more frequently than regular
 		users. If you set a session length, they’re prompted to sign in again to start a new 
-		session.
+		session
+
 		
 		The session length setting applies to:
 			● The Google Cloud console
