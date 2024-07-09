@@ -681,7 +681,7 @@ Module 2 Securing Communications and Establishing Boundary Protection
     ● https://cloud.google.com/iap/docs/using-tcp-forwarding#preparing_your_project_for_tcp_forwarding
     ● https://cloud.google.com/solutions/connecting-securely#preventing_vms_from_being_reached_from_the_public_internet
 
-Module 3 Ensuring Data Protection
+4/Module 3 Ensuring Data Protection
 
   Diagnoistic questions
   1. Cymbal Bank has hired a data analyst team to analyze scanned copies of loan applications. Because this is an external team, Cymbal Bank does not want to share the name, gender, phone number, or credit card numbers listed in the scanned copies. You have been tasked with hiding this PII information while minimizing latency. What should you do?

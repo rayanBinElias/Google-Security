@@ -46,10 +46,16 @@ Shared Responsibility Model Resources to read
     - App layer
 
 Organizational policies
-  - Policy inheritance between parent and child resources
+  Explaining the organization's policies
+    - https://blog.g-gen.co.jp/entry/organization-policy-explained
+
+    Organization Policy 
+      - allows you to manage multiple projects in an integrated manner
+
+  Policy inheritance between parent and child resources
     - https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy
 
-  - How to use the most common policies, as described in the official How-to guides
+  How to use the most common policies, as described in the official How-to guides
     Restricting Identities by Domain
       - https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains
     Restricting use of service accounts
