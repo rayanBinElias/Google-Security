@@ -52,3 +52,186 @@ One-way synchronization: A data sync process where information is transferred fr
   Compute Engine operation logs: Logs that detail operations performed on Compute Engine resources, relevant to infrastructure activities but not directly to sensitive data access.
 
 
+Set 2
+1. Policy Analyzer
+  - Part of Google's Cloud IAM suite, 
+  - Policy Analyzer enables the creation of reports and 
+  - analysis of access policies across the cloud resources, 
+  -which is integral to maintaining compliance and audit-readiness.
+
+Audit Logs
+  - Logs that record administrative activities and 
+  - accesses within cloud environments. 
+  - They are used for analysis in security investigations and compliance auditing.
+
+2. Deterministic Encryption
+  - A method of encryption where a given input always results in the same encrypted output. This property enables encrypted data matching across different datasets without revealing the original data.
+
+De-identification
+  - The process of removing or encrypting personally identifiable information from datasets, so that the privacy of the individuals in the dataset is protected.
+
+Cloud Data Loss Prevention (DLP)
+  - A Google Cloud service that provides data inspection, classification, and de-identification capabilities to help protect sensitive information and maintain compliance.
+
+3. CIS Benchmarks
+  - A set of best practice security configuration guides designed to provide prescriptive guidance for establishing a secure baseline configuration.
+
+Security Command Center
+  - Google Cloud's comprehensive security and risk management platform that provides unified visibility, continuous monitoring, and actionable security insights.
+
+Mute Findings
+  - A feature in Security Command Center allowing users to omit certain findings from view and reports, effectively ignoring them in security assessments.
+
+Custom Rule
+  - A user-defined criterion within Security Command Center that can automatically influence the interpretation or action taken on specific findings.
+
+4.Multifactor Authentication
+  - An authentication method requiring two or more verification factors to gain access to a resource, which dramatically increases account security by adding an additional layer of defense beyond just passwords.
+
+5.Cloud VPN
+  - Cloud VPN allows for the creation of a secure and encrypted connection over the internet between your Google Cloud network and your on-premises network.
+
+Cloud Interconnect
+  - Cloud Interconnect provides a higher-speed, more reliable, and lower-latency connection to Google Cloud than what internet-based connections can offer.
+
+6. SAML
+  - Security Assertion Markup Language (SAML) is an XML-based standard for exchanging authentication and authorization data between parties, particularly between an identity provider and a service provider.
+
+SSO
+  - Single Sign-On (SSO) is an authentication process that allows a user to access multiple applications with one set of login credentials, improving security and user experience.
+
+gcloud CLI
+  - The Google Cloud command-line interface (gcloud CLI) is a tool that provides the capability to manage Google Cloud resources and services via terminal commands.
+
+7. Organizational Policy
+  - A set of constraints that regulate the actions available across all Google Cloud resources within an organization. Used to enforce security rules and standards.
+
+Service Account Keys
+  - Authentication credentials used to access Google Cloud services programmatically. They pose a security risk if not managed properly.
+
+8. Artifact Registry
+  - A service for storing, managing, and securing Docker container images as well as other types of language packages. It is integrated with GKE and offers automated scanning features for vulnerabilities.
+
+Cloud Build
+  - A service that imports your source code, executes build instructions, and produces Docker images or other artifacts. It is often configured for continuous integration and continuous deployment workflows.
+
+Vulnerability Scanning
+  - The process of identifying and reporting security issues within software components. In the context of cloud services, it incorporates automated tools to scan container images for known vulnerabilities.
+
+9. Retention Policy
+  - A feature in Google Cloud Storage that allows you to set a minimum storage period for objects within a bucket, ensuring data cannot be deleted before the specified duration.
+
+Object Versioning
+  - A functionality in GCS that keeps a history of versions of an object within a bucket, protecting against accidental deletion and overwrites.
+
+Bucket Lock
+  - A tool in GCS that permanently enforces retention policies, preventing policy removal or alteration even by users with administrative permissions.
+
+10. Cloud Data Loss Prevention (DLP)
+  - A service that helps to manage and protect sensitive data by providing data inspection, classification, and redaction capabilities across Google Cloud services.
+
+Redaction
+  - The process of removing sensitive information from a document. In the context of data security, redaction obscures or eliminates personal or confidential information that should not be disclosed.
+
+Preservation
+  - In compliance contexts, preservation refers to the maintenance of data integrity and accessibility, often for legally mandated periods, without alteration or loss.
+
+
+49. Confidential VM instances: Confidential VMs are a type of Google Cloud computational resource that provides memory encryption in-use. This ensures data is encrypted and protected even during processing, safeguarding sensitive information against unauthorized access.
+
+Organization Policy: Organization policies in Google Cloud provide centralized governance, allowing administrators to set constraints across the entire resource hierarchy. This enforces compliance and manages security configurations for the entire organization.
+
+50. Workload Identity Federation: A feature allowing applications to authenticate with Google Cloud services using their native credentials, relying on an external identity provider rather than using service account keys.
+
+External Identity Provider: A third-party service that offers user authentication. Workload Identity Federation uses these providers, such as GitLab, to authenticate users or services before granting access to Google Cloud resources.
+
+Service Account Key: A cryptographic key provided by Google Cloud for a service account that can be used to authenticate applications and services when accessing Google Cloud resources.
+
+Environment Variables: A dynamic-named value that can affect the way running processes will behave on a computer. For CI/CD, they are used to store configuration settings and credentials.
+
+GitLab CI/CD: A tool built into GitLab for software development through the continuous methodologies: Continuous Integration (CI), Continuous Deployment, and Continuous Delivery (CD).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
