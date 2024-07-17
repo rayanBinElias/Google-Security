@@ -85,10 +85,10 @@ IAM Policies: Set of rules defined in Google Cloud IAM that governs the permissi
 Web Security Scanner: A tool that automatically scans and detects security vulnerabilities in web applications hosted on Google Cloud, and is part of the Google Cloud Security Command Center.
 
 JSON Serialization Library: A software component that converts objects into a JSON format, with some libraries providing default output encoding to sanitize content and prevent injection attacks.
-12.Resource Location Restriction: A feature within Organization Policy Service that enables control over where resources can be created by defining resource locations at the organization level.
+12.Resource Location Restriction
+  - A feature within Organization Policy Service that enables control over where resources can be created by defining resource locations at the organization level.
 
 Organization Policy Service: A service in Google Cloud that offers central, programmatic control over an organization's cloud resources, allowing admins to set constraints across the entire resource hierarchy.
-
 Data Sovereignty: The concept that digital data is subject to the laws and governance structures within the nation it is located or stored.
 13.Phishing-resistant 2FA: Authentication method designed to resist phishing attacks. It typically involves hardware tokens that can verify the legitimacy of the website a user is logging into.
 
@@ -203,7 +203,9 @@ PHI data environment: A specialized computing environment that stores, processes
 
 Google Cloud project segregation: The practice of using separate Google Cloud projects to isolate resources and control access. This can reduce the complexity and scope of compliance and security efforts.
 
-31. Data Residency: Data residency refers to the physical or geographical location where data is stored. Certain regulations and corporate policies may dictate that data is stored within specific regions to meet compliance requirements.
+31. Data Residency
+  - Data residency refers to the physical or geographical location where data is stored. 
+  - Certain regulations and corporate policies may dictate that data is stored within specific regions to meet compliance requirements.
 
 Retention Policy: A retention policy is a set of rules that governs how long data should be preserved before it can be deleted. Compliance with legal and regulatory requirements often dictates these policies.
 
@@ -336,7 +338,7 @@ Set 2
 1. Policy Analyzer
   - Part of Google's Cloud IAM suite, 
   - Policy Analyzer enables the creation of reports and 
-  - analysis of access policies across the cloud resources, 
+  - analysis of access policies across the `cloud resources, 
   -which is integral to maintaining compliance and audit-readiness.
 
 Audit Logs
