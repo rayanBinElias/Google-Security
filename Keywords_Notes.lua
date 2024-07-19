@@ -643,56 +643,295 @@ GitLab CI/CD: A tool built into GitLab for software development through the cont
 
 
 Set 3
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
-25.
-26.
-27.
-28.
-29.
-30.
-31.
-32.
-33.
-34.
-35.
-36.
-37.
-38.
-39.
-40.
-41.
-42.
-43
-44.
-45.
-46.
-47.
-48.
-49.
-50.
+1. Cloud Interconnect: Provides a secure, high-bandwidth connection between on-premises networks and Google's network, reducing latency and increasing reliability compared to public internet connectivity.
+
+gsutil: A Python-based command-line tool that manages files in Google Cloud Storage. It allows for the creation of sync tasks to automate data transfers.
+
+electronic health records (EHR): Digital versions of patients' paper charts. EHRs contain medical history, diagnoses, medications, treatment plans, immunization dates, allergies, and test results.
+
+2. Dedicated Interconnect: This service provides a direct physical connection between an on-premise network and Google Cloud for low-latency, high-bandwidth data transfer.
+
+VPC Service Controls: An advanced security mechanism that allows administrators to define a security perimeter around Google Cloud resources to prevent data exfiltration.
+
+Shared VPC: A Google Cloud feature that allows an organization to connect resources from multiple projects to a common Virtual Private Cloud, enabling efficient management and resource sharing across projects.
+
+Private Service Endpoint: A network feature that connects services directly to your VPC using internal IP addresses to enhance security and reduce exposure to the public internet.
+
+3. Object Lifecycle Management: A feature in Google Cloud Storage allowing users to automate the deletion or transition of objects based on specified criteria, such as age, changes to metadata, or storage classes.
+
+4. External HTTPS Load Balancer: Serves as a front end that distributes network or application traffic across several servers by using an HTTPS protocol to ensure secure communication.
+
+Managed Instance Group (MIG): A collection of VM instances that are managed as a single entity by Compute Engine for easy deployment and management.
+
+Shared VPC: Allows organizations to connect resources from multiple projects to a common Virtual Private Cloud network, thus managing network resources centrally.
+
+Cloud NAT Gateway: Enables VM instances without public IP addresses to connect to the Internet while preventing outsiders from initiating a connection with the instances.
+
+5. Packet Mirroring: A network service that duplicates a copy of a specified ingress and/or egress traffic on instances and delivers it to a designated packet collector for analysis.
+
+VPC Flow Logs: A feature that enables logging of network flows sent from and received by VM instances, including traffic within the same VPC, inter-VPC, and between Google services and VMs.
+
+Organizational Policy Constraints: Policies that help enforce specific resource configurations across an entire GCP organization to comply with governance and compliance requirements.
+
+Cloud Audit Logs: Logs that provide a record of actions taken by a user, administrator, or other actors within Google Cloud, tracking who did what, where, and when.
+
+6. Packet Mirroring: An advanced network feature allowing the capture and mirroring of traffic from network entities like virtual machine (VM) instances. This is primarily used for network performance monitoring, diagnostics, and security analysis purposes.
+
+7. Organization Policy: Organization policies provide centralized governance across an organization’s resources. They can enforce constraints on resources, such as restricting the locations where data can reside.
+
+Data Residency: Data residency refers to the physical or geographical locations where data is stored. It is subject to varying legal and regulatory requirements, which dictate how and where data should be maintained.
+
+Resource Hierarchy: The structure that organizes GCP resources which includes the organization, folder, project, and resource levels. The hierarchy is crucial when applying governance, permissions, and policies.
+
+8. Cloud Interconnect: A service which provides a direct, private connection between your on-premises network and Google's network.
+
+VPC Service Controls: A set of security features that provide a perimeter to guard against data exfiltration from Google Cloud services within a VPC.
+
+Restricted googleapis.com: An endpoint that allows access to Google APIs using a set of IP addresses that are only routable from within Google Cloud, enhancing security by not exposing data to the public internet.
+
+VPC: A virtual network within Google Cloud that provides a private, isolated section of Google Cloud where you can launch resources.
+
+9. VPC Service Controls: Restricts data within a virtual perimeter for Google Cloud resources, preventing data exfiltration to untrusted sources and enforcing access policies.
+
+egressTo: Configures outbound access from the VPC Service Controls perimeter to external services or projects, specifying the services or entities allowed.
+
+egressFrom: Determines which identities can send requests out from the VPC Service Controls perimeter to a service defined in an egress policy.
+
+serviceName: Refers to the particular Google Cloud service (e.g., ml.googleapis.com for AI Platform) that is specified in VPC Service Controls to control access.
+
+identityType: Specifies the type of identity in VPC Service Controls policies, e.g., ANY_IDENTITY for any authenticated user or service irrespective of the source.
+
+10. Organization Policy: An administrative policy that applies governance across all Google Cloud resources in an organization, setting restrictions on how cloud resources can operate.
+
+constraints/compute.skipDefaultNetworkCreation: An organizational policy constraint to prevent the automatic creation of a default network when creating a new project in Google Cloud.
+
+11. Workload Identity Federation: A security feature that allows applications running outside of Google Cloud to access Google Cloud resources securely without the need for service account keys.
+
+Lightweight Directory Access Protocol (LDAP): An open, vendor-neutral application protocol for accessing and maintaining distributed directory information services over an Internet Protocol (IP) network.
+
+Identity Pool: A collection of identities from an external identity provider that can be mapped to Google Cloud service account permissions.
+
+OpenID Connect (OIDC): A simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end-user based on the authentication performed by an authorization server.
+
+12. Cloud Interconnect: Provides a direct, enterprise-grade connection between Google's network and a company's internal network. It offers lower latency, increased bandwidth, and a private connection.
+
+Data Center-Based Firewall: A physical or virtual firewall located within the corporate data center that monitors and controls incoming and outgoing network traffic based on predetermined security rules.
+
+Route Traffic: Refers to the networking process of selecting paths in a network along which to send network traffic, based on specific criteria such as security policies or network efficiency.
+
+13. OS Config agent: A management service that provides configuration management, patch management, and compliance management capabilities to track and apply OS patches automatically across a fleet of VMs.
+
+Patch Management: Feature within OS Config agent which automates the patching process for managed instances, and can report on patch compliance across VM inventory.
+
+14. Cloud Logging: A service that stores logs from GCP resources and allows filtering and analysis. In this scenario, it is utilized to check the history of Write actions to Cloud Storage.
+
+Service Account: A special type of account used by an application, not a person, to interact with GCP services. It can be used by Compute Engine instances to authenticate and carry out operations.
+
+Authentication Field: A component of a log entry indicating which credentials were used to authenticate a request. Verifying this field can confirm the identity of the requester.
+
+15. Logs Explorer: A tool within Google Cloud's operations suite that allows users to view, search, and analyze logs generated by Google Cloud resources and applications.
+
+Organization Level Filtering: This refers to setting filters on Google Cloud resources at the organization level, which encompasses all underlying folders and projects, providing a comprehensive view.
+
+Aggregated Export: This process involves compiling logs from multiple sources within a specified scope such as a folder or organization and exporting them to a designated destination like BigQuery or Pub/Sub.
+
+16. Google Managed Encryption Keys (GMEK): GMEK refers to encryption keys that are managed by Google Cloud, where users have no control over the key management process including the key's creation, rotation, or destruction.
+
+Customer Managed Encryption Keys (CMEK): CMEK allows customers to manage their own encryption keys within Google Cloud, providing greater control over their key management including creation, rotation, and the security of their encryption keys.
+
+Rewrite Operation: In the context of Google Cloud Storage, a rewrite operation is used to move or copy objects from one location to another, potentially modifying their metadata or changing their storage class during the process.
+
+17. Virtual Machine Threat Detection: A feature of SCC designed to identify and respond to threats targeting virtual machine (VM) workloads, including malware, remote code execution, and other forms of unauthorized VM activities.
+
+18. compute.imageUser: A role in Google Cloud IAM that allows users to use images from Cloud Storage to create boot disks for Compute Engine VM instances.
+
+Organization Policy Constraint: A set of restrictions that administrators can configure at the organization, folder, project, or resource level to enforce specific behavior across all resources within the scope.
+
+19. FOLDER: In Google Cloud, a Folder is an organizational structure that groups together related resources, such as projects and other folders, allowing for hierarchical policy inheritance and management.
+
+CLOUD IDENTITY: A Google Cloud service providing identity and access management (IAM) features, enabling unified credentials across Google Cloud services and external systems, such as Active Directory.
+
+GOOGLE CLOUD DIRECTORY SYNC: A tool that synchronizes users, groups, and other data from an on-premises directory service like Active Directory with Google's Cloud Identity service.
+
+ROLE ALLOCATION: The process of assigning predefined IAM roles to users or groups, giving them specific permissions to access and manage Google Cloud resources.
+
+20. User-managed replication policy: This is a specific configuration option within KMS that allows users to select the regions where cryptographic key material will be stored and replicated, offering precise control over data residency.
+
+Data residency: Data residency refers to laws and regulations that dictate the physical location where data is to be stored. Compliance with data residency requirements is critical for some organizations.
+
+High availability: Refers to a system's ability to remain operational with a high degree of uptime, which can be influenced by how resources are replicated and distributed across geographical locations.
+
+21. Dry run mode: Dry run mode allows administrators to evaluate the impact of VPC Service Controls by logging requests that would violate VPC Service Controls, without actually enforcing them.
+
+VPC Service Controls: VPC Service Controls strengthen the security of sensitive data within Google Cloud services by creating a secure perimeter around data resources.
+
+22. Cloud Key Management Service (Cloud KMS): A cloud service that allows you to manage cryptographic keys for securing your data. It supports automated key rotation and allows you to define the key's geographical location.
+
+Google-managed encryption keys: Encryption keys that are fully handled by Google without user management overhead. They offer ease of use but less control over the key management process.
+
+Data Sensitivity: A measure of how critical the data is to protect, often determining the rigor of security measures like encryption and key management applied to the data.
+
+23. BeyondCorp Enterprise: A security model and product offered by Google Cloud that enables zero-trust access to company data and resources, often based on the verification of the user and the device context.
+
+Device Certificate: A digital certificate installed on a device to assert its identity. It is used within secure environments to authenticate devices before allowing access to resources.
+
+Access Policy: A configuration in security services like BeyondCorp that defines the criteria for granting or denying access to resources based on user identity, device security status, and other attributes.
+
+24. Organization Policy Service: A service that helps you configure constraints across your Google Cloud resource hierarchy for consistent enforcement of policies that reflect your organization's requirements.
+
+compute.trustedImageProjects constraint: A constraint that ensures only approved images from specified projects can be used, preventing the usage of unauthorized or potentially insecure images.
+
+allow list operation: A policy operation that explicitly permits only what is included in the list, rejecting all others. Applied through Organization Policy Service to control resource usage.
+
+deny list operation: Contrary to allow lists, this policy operation prohibits specifically listed entities while permitting all others that aren't listed.
+
+25. Policy Analyzer: A tool in Google Cloud's IAM that provides insights into who has what access to resources across the organization, allowing security and compliance checks related to users' permissions.
+
+permissions sql.instances.update or sql.instances.patch or sql.instances.delete: Specific IAM permissions in Cloud SQL that allow users to update, apply patches, or delete database instances, respectively, which are critical actions requiring close monitoring.
+
+26. Customer-managed encryption keys (CMEK): A feature allowing customers to manage their own encryption keys in Google Cloud KMS, which are then used to encrypt data at rest within cloud resources.
+
+Data at rest: Refers to data that is not actively moving from device to device or network to network. It includes data stored on a hard drive, laptop, flash drive, or archived/stored in some other way.
+
+Cloud Spanner: A fully managed, scalable, relational database service with transactional consistency at a global scale, automatic multi-region replication, and high availability.
+
+27. Organization Administrator: An IAM role within Google Cloud that provides full control over all resources within the organization. This includes setting policies, managing compliance settings, and overseeing IAM roles across all projects.
+
+Cloud Identity: A Google Cloud feature that helps organizations manage users, devices, apps, and access to services across Google Cloud resources in a centralized manner.
+
+Rights Management: The process of defining and controlling permissions and access levels for users or groups to resources in a cloud environment.
+
+Audit: A systematic examination of resource usage, configurations, and security policies to ensure compliance with company or regulatory standards.
+
+28. Shared Responsibility Model: A security framework used by cloud service providers that delineates the roles and responsibilities of the provider and the user. It's pivotal in cloud compliance and data security strategies.
+
+HIPAA Compliance: Refers to meeting the standards and protections for the use and sharing of protected health information as organized by the HIPAA, which healthcare providers must adhere to.
+
+Google Cloud Compliance Resources: Documentation and resources provided by Google that offer guidance and details about compliance with various standards, including HIPAA, within its cloud services.
+
+29. Public IP: A Public IP address is an external address assigned to a compute instance, enabling it to communicate with the internet and other external services.
+
+Private Google Access: Allows instances with only private IP addresses to reach Google services like Google Cloud APIs and services without using a public IP address.
+
+30. PublicAccessPrevention: A feature that, when enabled, prevents the creation of public access to data within a Cloud Storage bucket, ensuring a higher level of security.
+
+OrganizationPolicy: A centralized resource in Google Cloud that allows administrators to set constraints that reflect their compliance and governance needs.
+
+UniformBucketLevelAccess: A feature that unifies and simplifies the access control management for Cloud Storage buckets by using only IAM.
+
+VPIServiceControls: A set of security features that provide an additional layer of security to help control data exfiltration risks.
+
+31. Cloud Armor: A Google Cloud service that enhances security and DDoS protection. It supports IP allowlisting/denylisting, and geo-based access control, and integrates with global HTTP(S) load balancing.
+
+HTTP flood attacks: A type of DDoS attack in which the attacker exploits seemingly legitimate HTTP GET or POST requests to overwhelm a targeted server or network.
+
+32. Session Timeout Settings: This refers to a security measure that logs a user out after a period of inactivity. Adjusting these settings could help prevent unauthorized access if a user leaves their endpoint unattended.
+
+User Reauthentication Interval: This is the frequency with which users are required to re-enter their credentials to confirm their identity, which enhances security by ensuring that sessions are not hijacked over an extended period.
+
+33. Customer-supplied encryption keys: Enables customers to generate and manage their own encryption keys and supply them to the cloud provider for encrypting data at rest, allowing for independent key control outside of the cloud environment.
+
+Cloud External Key Manager: A service that manages encryption keys externally, allowing users to use encryption keys stored outside of Google's infrastructure while still leveraging Google Cloud services for data processing and storage.
+
+34. Cloud Identity: Google Cloud's identity management service that provides access control and identity services, often used in combination with third-party identity providers for single sign-on (SSO).
+
+Google Cloud Directory Sync: A tool that provides synchronization service between an existing LDAP-based identity management system and Google's Cloud Identity service.
+
+Transfer Tool for Unmanaged Users (TTUU): A feature offered by Google that helps administrators transfer user data from unmanaged (personal) Google accounts to managed Google accounts within a domain.
+
+35. Multi-Regional Storage: Cloud Storage Multi-Regional is a class of storage within Google Cloud that provides high availability and redundancy by storing data in multiple geographically separate regions.
+
+Georedundancy: Georedundancy refers to the capability of a storage system to replicate data across geographically distant data centers to ensure high availability and disaster recovery.
+
+36. Cryptographic Hashing: A method of converting data into a fixed-size hash that is not reversible. Ideal for ensuring data confidentiality as the original information cannot be derived from the hash.
+
+Deterministic Encryption: An encryption algorithm that produces the same encrypted output for a given piece of data each time. Useful for scenarios requiring consistency but less secure for sensitive data patterns.
+
+Format-Preserving Encryption: A type of encryption that maintains the original format of the data, such as alphanumeric structure or length, which could be problematic in preserving original data patterns.
+
+Cloud Key Management Service (KMS): A cloud service to manage cryptographic keys. Its use with DLP provides an additional security layer, but does not affect the adherence to de-identification techniques.
+
+37. Row-Level Access Control: Method to manage data visibility in a database table where permissions are set based on rows, enabling row filtering during query execution.
+
+Column-Level Security Label: A security feature that uses labels attached to columns for controlling access rights, allowing granular permission management on a per-column basis.
+
+Least Privilege Principle: A key security concept that involves granting users only the permissions they need to perform their tasks, minimizing access to sensitive data and systems.
+
+38. Binary Authorization: A service on Google Cloud that provides a way to ensure only trusted container images are deployed on cloud services by enforcing policies set by the organization.
+
+Organization Policy Constraint: A set of rules that define resource configurations for Google Cloud resources within an organization, helping to enforce compliance and governance rules.
+
+39. Infrastructure-as-Code (IaC): A method of managing and provisioning computing infrastructure through machine-readable definition files, rather than physical hardware configuration or interactive configuration tools.
+
+Service Perimeter: In the context of Google Cloud's VPC Service Controls, a service perimeter is a security boundary that protects the resources and services that reside within it from access by services outside that perimeter.
+
+Cloud Pub/Sub: A fully managed real-time messaging service that allows for asynchronous service-to-service communication by integrating systems or applications with highly scalable and reliable event ingestion and distribution.
+
+Cloud Function: A serverless execution environment for building and connecting cloud services. It's event-driven and can respond to events from various cloud services and external sources.
+
+Terraform: An open-source infrastructure as code software tool that allows users to define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language (HCL), or optionally JSON.
+
+40. Cloud Pub/Sub: A messaging service for exchanging event data among applications and services. Functions as an event ingestion and delivery system facilitating event-driven architectures.
+
+Cloud Functions: A serverless execution environment for building and connecting cloud services. It's triggered by events from Cloud Storage, Pub/Sub, or direct invocation.
+
+Data Loss Prevention (DLP) API: A service that provides data inspection, classification, and redaction capabilities. It can help find and de-identify sensitive information in data streams or stored data.
+
+41. Access Transparency: Provides logs of Google Cloud Platform actions taken by Google staff when interacting with your data or configuration, allowing visibility into the operational access by the provider.
+
+Access Approval: A feature that allows you to approve or deny Google support and engineering access to your data when Google needs to interact with your data or configuration for support purposes.
+
+42. Least Privilege Principle: A security concept where a user is granted the minimum levels of access – or permissions – needed to perform his/her job functions.
+
+System Event logs: Logs that record events occurring within the system, such as admin activities or changes to configurations.
+
+Network Traffic logs: Records of incoming and outgoing traffic within a network, used for analyzing network activity, performance, and security incidents.
+
+Compliance Audit logs: Logs that document the trail of actions by individuals and systems that have implications for regulatory compliance.
+
+43. Hierarchical Firewall Policies: This feature allows administrators to centrally manage firewall rules across all their Google Cloud resources. Rules are inherited by lower levels of the resource hierarchy, enabling broad policy enforcement.
+
+Security Command Center: An integrated risk management solution provided by Google Cloud that identifies, reviews, and remediates security and data risks across cloud assets.
+
+OPEN_REDIS_PORT vulnerabilities: A security risk whereby Redis instances are accessible over the internet due to exposed ports, potentially allowing unauthorized access to data.
+
+Organizational Level Policy: A set of controls and configurations applied across an entire Google Cloud organization rather than individual projects or assets, ensuring uniform security postures.
+
+44. Cloud External Key Manager: A security feature allowing customers to manage encryption keys outside of Google's infrastructure while still using them within Google Cloud services.
+
+Uniform Resource Identifier (URI): A string of characters that uniquely identifies a particular resource. In the context of keys, it's used to reference the external key within Google services.
+
+Key Management Service (KMS): A service used to create and manage cryptographic keys and control their use across a range of Google Cloud services and applications.
+
+45. Cloud Build: A service that imports source code, executes build to construct software, and outputs built artifacts into Google Cloud Storage.
+
+Container Analysis: A service that continuously analyzes and stores the metadata of containers for vulnerabilities. It is integrated within Google Cloud's artifact registry services.
+
+Binary Authorization: A security control that ensures only trusted container images are deployed on GKE by enforcing policies that confirm image provenance and integrity.
+
+Attestation: A security assertion that confirms a container image meets a set of defined criteria, often used alongside Binary Authorization in GKE to ensure image trustworthiness.
+
+46. Cloud Asset Inventory: A Google Cloud service that helps users to maintain visibility into their cloud resources, supporting the discovery, monitoring, and analysis of cloud assets across projects and services.
+
+Network Security Scanner: A tool or service that performs automated security scanning of network services and is used to detect vulnerabilities and risks in public-facing resources within a cloud environment.
+
+47. Identity-Aware Proxy (IAP): IAP controls access to cloud applications and VMs running on Google Cloud, enabling access based on identities and group membership without using VPNs.
+
+TCP forwarding: TCP forwarding through IAP allows secure transmission of data over a TCP session, providing a way to tunnel various types of traffic over a secure connection.
+
+48. VPC Service Controls: VPC Service Controls enhance the security of sensitive data stored in GCP services by providing perimeter-based protection around resources and preventing data exfiltration.
+
+Principle of least privilege: A security concept whereby a user is given the minimum levels of access – or permissions – needed to perform his/her job functions.
+
+Ingress Policy: In a context of VPC Service Controls, an ingress policy controls incoming requests to resources within a service perimeter, allowing specification of what can enter the protected perimeter.
+
+49. Date Shifting: A technique to anonymize a date by shifting it by a consistent amount, but keeping the interval between shifted dates identical to the interval between original dates, thereby preserving the period information.
+
+Context Attribute: A unique identifier used to ensure that the same input value across different records is consistently obfuscated in a repeatable manner when using de-identification techniques like date shifting.
+
+50. Cloud NAT: A Google Cloud service that allows instances without public IP addresses to connect to the internet without exposing them to incoming connections.
+
+Private Google Access: Provides a method for VM instances that only have internal IP addresses to reach the external IP addresses of Google APIs and services.
 
 Set 4
 1.
