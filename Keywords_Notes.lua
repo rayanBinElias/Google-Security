@@ -934,56 +934,302 @@ Context Attribute: A unique identifier used to ensure that the same input value 
 Private Google Access: Provides a method for VM instances that only have internal IP addresses to reach the external IP addresses of Google APIs and services.
 
 Set 4
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
-25.
-26.
-27.
-28.
-29.
-30.
-31.
-32.
-33.
-34.
-35.
-36.
-37.
-38.
-39.
-40.
-41.
-42.
-43
-44.
-45.
-46.
-47.
-48.
-49.
-50.
+1. Shared VPC: Allows organizations to connect resources from multiple projects to a common VPC network, so that they can communicate with each other securely and efficiently using internal IPs from that network.
+
+Organization Policies: A set of constraints that can be applied to Cloud Resource Manager hierarchy resources to enforce specific behavior across an entire organization.
+
+Project Lien: A mechanism to prevent accidental deletion of GCP projects. Once set, the project cannot be deleted without first removing the lien.
+
+2. constraints/gcp.resourceLocations: A hierarchical resource location constraint that allows you to define where in the GCP resource hierarchy (organization, folder, or project) resources can be created, which is critical for compliance with territorial laws.
+
+Org Policy: A policy framework within Google Cloud designed to configure restrictions across the entire organization's resource hierarchy, helping enforce company-wide regulations and compliance standards.
+
+3. Service Account Key Rotation: Involves creating a new key and safely replacing the old key. This practice ensures security by limiting the time a single key is in use.
+
+User-Managed Service Account: A type of Service Account where the keys are managed by the account user, adding responsibilities for the secure generation, storage, and rotation of keys.
+
+Key Revocation: The process of invalidating a key to prevent its further use in authentication. Revocation is critical after rotating to a new key for continued security.
+
+4. External Key Manager: A feature allowing the management of encryption keys outside of the Google Cloud perimeter, facilitating the use of keys administered by a third-party key management service for data encryption.
+
+Confidential VMs: An advanced Compute Engine offering that encrypts data in use, so sensitive information remains encrypted even while it's being processed in memory.
+
+5. TCP Proxy Load Balancing: A type of load balancer that operates at the Transport Layer of the OSI model. It enables you to route non-HTTP traffic based on incoming TCP connection properties.
+
+Global Load Balancing: A method of distributing user requests across multiple data centers around the world. This ensures low latency and high availability by routing users to the nearest or best-performing data center.
+
+Port 995: Typically used by secure Post Office Protocol 3 (POP3S), this TCP port is leveraged for encrypted communication to retrieve emails from a remote server over an SSL/TLS connection.
+
+Geographic Location Routing: A capability in load balancing that allows incoming network requests to be directed to the nearest geographic server endpoint, reducing latency and improving the user experience.
+
+6. Security Command Center: Google Cloud's unified security and risk management platform that provides security visibility and enables compliance across an organization's cloud assets.
+
+bigquery.publicDataAccessPrevention: An organization policy that, when enforced, prevents accidental public exposure of datasets by disallowing public access to BigQuery resources.
+
+Query usage logs: These logs provide detailed information about queries executed in BigQuery, enabling the audit of access patterns and identification of unauthorized data access.
+
+7. Cloud Identity: A service that provides a centralized and standardized system for user identity management across various Google Cloud services, enabling administrators to implement security policies, such as minimum password length.
+
+8. Cloud Identity-Aware Proxy (IAP): An integrated service that controls access to web applications running on Google Cloud by verifying users' identity and determining if they should be allowed access based on predefined policies.
+
+Google Group: A collection of user accounts that can be managed as one entity and used to simplify the administration of shared resources like Cloud IAP, making it easier to manage permissions for a group of users rather than individually.
+
+9. Forseti Security: An open-source tool that helps to secure Google Cloud environments. It enables the continuous monitoring of GCP resources to ensure they meet the organization's security policies.
+
+Inventory Snapshot: A captured state of resource metadata at a specific point in time. Snapshots allow organizations to track their resource configurations and changes over time, aiding in audits and reviews.
+
+10. Geo-Based Routing: Geo-based routing allows traffic distribution based on geographic location of the client, which is essential for providing localized content and reducing latency.
+
+IP Blacklisting: IP blacklisting is a security mechanism that blocks traffic from certain IP addresses known to be harmful or unwanted, thus preventing potential attacks.
+
+WAF (Web Application Firewall): WAF protects web applications from common web exploits and vulnerabilities by filtering and monitoring HTTP traffic between a web app and the Internet.
+
+11. Cloud VPN: Facilitates the connection of networks across different Google Cloud projects or with external networks, using secure tunnels to protect data in transit and enabling communication using private IPs.
+
+VPC: A virtual network that is globally scalable and flexible, allowing customers to establish isolated environments within the Google Cloud infrastructure.
+
+VPC Firewall Rules: Defines what traffic is allowed or denied to and from instances within a VPC, controlling inbound and outbound data flow according to IP addresses, protocols, and ports.
+
+12. HIPAA: The Health Insurance Portability and Accountability Act sets the standard for protecting sensitive patient data. Any company that deals with PHI must ensure that all the required physical, network, and process security measures are in place and followed.
+
+Cloud External Key Manager: A Google Cloud service that allows you to use external, third-party key management systems to protect data within Google Cloud services by using external keys.
+
+Customer-managed encryption keys: Encryption keys that are created and managed by the customer within Google's Cloud Key Management Service, offering a balance between control and convenience.
+
+Customer-supplied encryption keys: A key management option where the customer generates and manages the encryption keys outside of Google Cloud services and supplies them for use in Google Cloud.
+
+Google-managed encryption keys: Encryption keys that are automatically generated and managed by Google Cloud Platform, requiring the least amount of customer effort for key management.
+
+13. Organization Policy: Enables governance by applying constraints across the entire Google Cloud organization, allowing administrators to set restrictions on resources and operations.
+
+Public IP restriction: A security measure to prevent direct internet access to compute resources, thereby limiting exposure to external threats and reducing attack surface.
+
+Editor Role: A predefined IAM role that grants permissions to modify all resources except for managing roles and permissions.
+
+14. Logging Sink: A mechanism in Google Cloud for exporting logs from the Logging module to supported destinations such as Pub/Sub, BigQuery, and Cloud Storage.
+
+includeChildren: A parameter used when creating a logging Sink to indicate that logs from all child projects should be included in the logging export.
+
+Cloud Audit Logs: Google Cloud service that provides log records of actions affecting resources, offering insights for compliance, operational, and risk auditing needs.
+
+httpRequest field: Part of Cloud Audit Logs that contains information about HTTP requests associated with an API call or service event in Google Cloud.
+
+15. Cross-Site Scripting (XSS): An attack that involves injecting malicious scripts into content from otherwise trusted websites, often through user input fields.
+
+SQL Injection (SQLi): A code injection technique that may destroy your database. It is one of the most common web hacking techniques. It is the placement of malicious code in SQL statements, via web page input.
+
+Platform as a Service (PaaS): A cloud computing model that provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure.
+
+16. Firewall Rules Logging: A feature that allows you to record, retain and access logs for firewall rule events, giving visibility into the traffic allowed or denied by your firewall rules.
+
+Logs Explorer: A tool within Google Cloud's operations suite that provides a comprehensive interface for running complex queries against log data, enabling users to search, sort, and analyze log events.
+
+VPC Flow Logs: A feature that enables logging of network flows sent from and received by virtual machine instances, providing valuable insights into network performance and security.
+
+Bastion Host: A secure, hardened instance that is used as the entryway to your private network from an external point of access, typically to facilitate secure administrative tasks.
+
+17. Multi-factor Authentication (MFA): MFA adds an additional layer of security beyond just a password. Users must provide two or more verification factors to gain access to resources.
+
+Hardware Security Key: A physical device that provides secure two-factor authentication by confirming a user's identity before granting access to a service or device.
+
+Principle of Least Privilege: Security concept where users are granted only those access rights or permissions they need to perform their official duties.
+
+18. Shared Security Model: A cloud computing framework that dictates that both cloud service providers and clients have responsibilities in ensuring the security of cloud resources.
+
+PaaS: A cloud computing service model that provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure.
+
+HIPAA: The Health Insurance Portability and Accountability Act sets the standard for patients' data protection in healthcare; entities dealing with protected health information must ensure data confidentiality, availability, and integrity.
+
+19. Custom IAM Role: A Custom IAM Role allows administrators to create unique roles with a precise set of permissions tailored to the specific requirements of their teams or processes, beyond predefined roles.
+
+Principle of Least Privilege: A security concept where users are granted only the permissions needed to perform their job functions, minimizing potential pathways for security breaches.
+
+20. Customer-managed encryption keys (CMEK): CMEKs enable users to create, control, and rotate encryption keys using Cloud KMS. They provide increased control over the encryption process for cloud services.
+
+Cloud Key Management Service (KMS): A cloud service that lets you manage cryptographic keys for your cloud services in a centralized cloud service.
+
+Managed Instance Groups (MIGs): MIGs allow users to operate multiple instances as a single entity, facilitating high availability, auto-scaling, and load balancing.
+
+Encryption at-rest: Refers to the encryption of data stored (at rest) on persistent storage, protecting it from unauthorized access when not in use.
+
+21. Private Google Access: Enables resources on a subnet to reach Google APIs and services without using an external IP address.
+
+External IP addresses: Publicly accessible IP addresses associated with Compute Engine instances, allowing them to send and receive traffic directly from the internet.
+
+22. OS Config API: A service that allows management of operating system configurations across Virtual Machine (VM) instances, including the ability to execute patch management tasks.
+
+Patch Management: The process of managing a network of computers by regularly performing system patches to improve security and functionality.
+
+Permissions: Specifically defined access rights to resources or services within a cloud environment. Proper permission setup ensures security and access control for VM instances interacting with other services.
+
+Recurring Patch Jobs: Automated operations scheduled to run at regular intervals, ensuring VMs maintain up-to-date security patches without manual intervention.
+
+Egress Firewall Rules: Outbound security rules that control network traffic leaving a network boundary, such as traffic from a VPC to the Internet.
+
+23. Workload Identity: A GCP feature enabling applications running in GKE to securely access other Google Cloud services by assigning a Google Service Account to a Kubernetes Service Account with fine-grained permissions.
+
+Service Accounts: Special types of Google accounts designed to represent non-human users that need to authenticate and be authorized to access data in Google APIs.
+
+Namespaces: A feature in Kubernetes used to separate cluster resources between multiple users and manage access control.
+
+Data Transformation Processes: Operations within ETL pipelines that manipulate or convert data from a source format to a necessary output format or structure for querying and analysis purposes.
+
+24. organization policy constraints: Organization policies provide centralized governance over the configuration of GCP resources across your entire resource hierarchy. They enable the enforcement of particular service behaviours.
+
+iam.disableServiceAccountCreation: A boolean constraint within GCP's Organization Policies that, when enabled, prevents users and service accounts in the organization from creating new service accounts.
+
+25. Data Loss Prevention (DLP) API: A service that provides data inspection, classification, and redaction capabilities. It is designed to help manage, classify, and redact sensitive data across an organization.
+
+Redaction: The process of removing sensitive information from a document or image. In the context of DLP, redaction would ensure sensitive data is not visible or accessible.
+
+Image Inspection: A feature of the DLP API that can detect and inspect sensitive data within images, enabling organizations to manage risks associated with storing and sharing images.
+
+26. Ingress Firewall Rule: A network security feature that controls the flow of incoming network traffic to service instances based on defined security policies.
+
+Firewall Tags: Attributes that can be applied to virtual machine instances in Google Cloud, which are then used to match against firewall rules to apply appropriate network access controls.
+
+27. Undelete Command: Google Cloud IAM allows deleted service accounts to be restored within a recovery period using the undelete command. This command is crucial for reversing accidental deletions without the need to reconfigure permissions.
+
+28. Packet Mirroring: A network feature that duplicates a stream of network packets and sends the copy to a designated Compute Engine VM, allowing for real-time traffic inspection using security and monitoring tools.
+
+Security Analysis Tools: Software applications or services that are used to monitor, assess, and manage the security posture of network infrastructure. Common functionalities include threat detection, intrusion analysis, and compliance reporting.
+
+29. Super Administrator: The most powerful role within a Google Workspace account who has full access to all settings and features and can assign roles to other users.
+
+SAML 2.0 Identity Provider (IdP): A system that allows a company to use their own credentials for user authentication, instead of credentials managed by a third party, to enable single sign-on.
+
+Cloud Identity: A Google Cloud service that provides identity and access management (IAM), enabling organizations to manage users and enforce multi-factor authentication and security policies.
+
+Domain Challenge Process: A procedure initiated with Google Cloud Support to prove the ownership of a domain that has been registered with another Google service.
+
+30. Service Accounts: A service account is a special kind of account used by an application or a virtual machine (VM) instance, not a person. It is intended for scenarios where servers or code need to authenticate independently.
+
+Firewall Rules: Rules configured within Google Cloud's network firewall to control incoming and outgoing network traffic to and from virtual machine instances according to IP addresses, protocols, and ports.
+
+31. Customer-managed encryption keys (CMEK): Encryption keys that are created, controlled, and managed by the customer. They offer more flexibility in key management policies and can be used to protect data at rest.
+
+Cloud HSM: A cloud-based hardware security module service that enables users to host encryption keys and perform cryptographic operations in a FIPS 140-2 Level 3 certified environment.
+
+FIPS 140-2 Level 3: A U.S. government security standard that certifies cryptographic modules to prevent the unauthorized access, modification, or extraction of sensitive information.
+
+Key rotation: The process of retiring an encryption key and replacing it with a new key. Frequent auto-rotation enhances security by reducing the window of opportunity for key compromise.
+
+32. Non-transitive connectivity: In the context of network design, this refers to a networking setup where each network connection must be explicitly established. In VPC peering, this means one VPC cannot communicate with third-party VPCs through a peered VPC.
+
+Distinct organizations: This relates to multiple business units or entities within separate legal or organizational structures, each having its own Google Cloud organization, which manages resources and permissions independently of each other.
+
+33. Identity-Aware Proxy: IAP is a Google Cloud service that controls access to applications running on GCP, establishing a secure perimeter, based on identity verification and context, such as the user's role.
+
+IAP-Secured Web App User: This IAM role grants permission for a user to access web applications protected by IAP, which includes App Engine applications.
+
+IAM user: A user that has an account in Google's Identity and Access Management system, who can be granted various permissions and roles within the GCP ecosystem.
+
+34. Bucket Lock: A feature in Google Cloud Storage that allows you to configure a data retention policy for objects in a bucket, preventing them from being deleted for a set period of time.
+
+Access Control Settings: Configurations within a Cloud Storage bucket that dictate how permissions are granted to users and services, which can affect compatibility with certain features such as Bucket Lock.
+
+35. Cloud Pub/Sub: A messaging service for building event-driven systems and streaming analytics. It provides real-time and reliable messaging between applications.
+
+includeChildren: A property in GCP's resource hierarchy that when set to true, ensures log entries from all child resources are included in the sink export.
+
+export logs: Refers to the operation in GCP whereby logs are transferred from Stackdriver Logging to another service within GCP for processing, analysis, or long-term storage.
+
+Billing Account: An account within GCP that is used to define who pays for a particular set of GCP resources. Projects are linked to a billing account.
+
+Folders: An organizational structure within GCP that allows grouping and hierarchically organizing projects that share common features or that need to be treated as a single entity.
+
+36. IPsec VPN tunnel: A secure network protocol suite that authenticates and encrypts the packets of data sent over a network to establish a secure tunnel between two sites.
+
+VPC with Private Google Access: Allows instances with only private IP addresses in a Google Cloud Virtual Private Cloud to reach Google APIs and services without using public IP addresses.
+
+Encrypted Data Transit: Ensuring data is protected from unauthorized interception and access during transmission by using encryption methods.
+
+37. Secret Manager: A secure and convenient storage system that allows you to store and manage sensitive information like API keys, passwords, certificates, and other secrets. It’s integrated with Google’s Cloud Identity and Access Management for fine-grained access control.
+
+Environment Variables: Variables within an application's runtime that can affect the way running processes will behave on a computer. They are not designed to hold secret data securely.
+
+Instance Metadata: Data about the instance that can be used by the application to configure or manage the running instance. Instance metadata is accessible from within the instance and is not designed for storing secrets.
+
+Cloud KMS: A cloud-hosted key management service that lets you manage cryptographic keys for your cloud services in a centralized fashion, useful for encrypting sensitive data but not specifically designed for secret management.
+
+38. Identity-Aware Proxy: A service that helps you manage access to your applications by verifying user identity and the context of the access attempt to determine if a user should be allowed to access application resources.
+
+Access Context Manager: Allows administrators to define fine-grained, attribute-based access control for projects and resources in Google Cloud, which is leveraged by services like Identity-Aware Proxy for enforcing access policies.
+
+39. FIPS 140-2: A U.S. government computer security standard used to accredit cryptographic modules and ensure their compliance for secure data management.
+
+BoringCrypto: A FIPS 140-2 validated cryptographic module that is part of the BoringSSL library, providing approved security features for cryptographic operations.
+
+Local SSDs: Highly performant local block storage that is physically attached to the server hosting the virtual machine instance, offering low latency for I/O-intensive applications.
+
+UDP: User Datagram Protocol is a connectionless networking protocol that offers low-latency and high-speed data transmission without ensuring delivery or order.
+
+40. Standard Tier network: A Google Cloud network service tier that routes user's traffic through the public internet to the closest Google network edge location.
+
+Premium Tier network: A Google Cloud network service tier that leverages Google's private, high-speed network to provide low-latency and higher reliability.
+
+Network endpoint groups: A Google Cloud feature allowing you to specify endpoints by IP address and port, which can represent a service hosted outside Google Cloud or within it.
+
+Global Load Balancer: A Google Cloud service providing cross-regional load distribution, which directs user traffic to the nearest instance group based on latency and availability.
+
+41. Organizational Policy: A set of constraints applied across the Google Cloud resource hierarchy to enforce certain service configurations and limitations at scale.
+
+Resource Hierarchy: Google Cloud's structuring mechanism that allows the organization to arrange and govern resources in a hierarchical fashion, including the organization, folders, projects, and resources.
+
+Policy Inheritance: The mechanism by which policies are applied throughout the resource hierarchy, with lower levels inheriting policies from higher levels unless explicitly overridden.
+
+Policy Override: The action of setting a policy at a lower level in the resource hierarchy that contradicts and takes precedence over a policy inherited from a higher level.
+
+42. Organization Policy Service: A service that defines and enforces resource policies on your organization's cloud resources, thereby helping to maintain compliance with regulatory standards.
+
+Key Access Justifications: A feature providing detailed reasons for data access by Google personnel, allowing customers to grant or deny such access, enhancing transparency and control over data.
+
+Resource Locations Constraint: A policy setting within the Organization Policy Service that restricts where resources can be created, helping organizations meet regulatory and compliance requirements.
+
+43. Unmanaged Accounts: Accounts created by users outside of an organization's control, often with company email addresses, that exist independently within Google services.
+
+Data Migration Tool: A Google service feature that enables the transition of user data from unmanaged or 'consumer' Google accounts to managed Google Workspace accounts.
+
+44. Custom Role: A user-defined set of permissions tailored to the specific needs of a role that cannot be fully met by Google's predefined roles. This allows for adherence to the principle of least privilege.
+
+Service Account: A special type of account used by applications, virtual machines, and other services to interact with GCP services programmatically, they can be granted specific permissions using IAM roles.
+
+bigtable.instances.list: A specific IAM permission that grants the capability to view a list of Bigtable instances in the project. This does not grant permissions to view instance details or perform any management tasks.
+
+45. Shared VPC: A network resource that allows multiple Google Cloud projects (service projects) to connect to a common host project VPC. This setup simplifies network management and ensures resource sharing without compromising security.
+
+Access Control Lists (ACLs): ACLs in the context of Google Cloud are used to control the flow of traffic to and from network subnets. They are an integral part of network security management.
+
+Service Project: In Google Cloud, a service project is a project connected to a host project's Shared VPC. It allows the service project to utilize network resources of the host project.
+
+46. Custom Role: A user-defined set of permissions tailored to the specific needs of a role that cannot be fully met by Google's predefined roles. This allows for adherence to the principle of least privilege.
+
+Service Account: A special type of account used by applications, virtual machines, and other services to interact with GCP services programmatically, they can be granted specific permissions using IAM roles.
+
+bigtable.instances.list: A specific IAM permission that grants the capability to view a list of Bigtable instances in the project. This does not grant permissions to view instance details or perform any management tasks.
+
+47. Folder Hierarchy: A logical grouping of Google Cloud resources that allows for effective organization and management of permissions, supporting inheritance and cascade of access controls from the folder level down to projects.
+
+Google Groups: A collaborative functionality offered by Google enabling the creation of groups for efficient management and distribution of permissions among multiple users.
+
+48. Identity Reconciliation: The process of ensuring that user records in an organization's Identity Provider (IdP) match the records in another service or database. Inconsistencies are resolved to maintain accurate and updated user data.
+
+Account Transfer Tool: A feature provided by Google to help administrators move users' personal accounts into a managed Google Workspace domain, granting the organization control over these accounts.
+
+49. Container Security: Refers to the methodologies, tools, and practices that ensure the security of containerized applications across the different phases of the DevOps pipeline, including build, ship, and run.
+
+Base Image: The underlying layer used to build containers. A smaller base image is generally more secure as it contains fewer components, reducing the attack surface for potential vulnerabilities.
+
+50. SAML Integration: The process of configuring a service provider to accept authentication from a SAML-compliant identity provider, establishing trust for SSO.
+
+Callback URL: The location to which a browser is redirected after authentication, critical in the SAML flow for verifying user credentials.
+
+X.509 security certificate: A standard defining the format of public key certificates, used in SAML setups for signing and encryption, ensuring secure credential exchange.
+
+Identity Provider Entity ID: A unique identifier for the identity provider in a SAML transaction, used to configure the trust relationship with the service provider.
+
+Assertion Consumer Service (ACS) URL: The endpoint at which the service provider receives SAML assertions (authentication responses) from the identity provider.
+
 
 
 Set 5
