@@ -1233,31 +1233,169 @@ Assertion Consumer Service (ACS) URL: The endpoint at which the service provider
 
 
 Set 5
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
-25.
+1. DNSSEC: DNS Security Extensions (DNSSEC) add a layer of security to domain name system lookups by validating responses with digital signatures, ensuring the integrity and authenticity of DNS data.
+
+Domain Spoofing: Domain spoofing refers to the malicious practice of mimicking the domain names of legitimate sites to deceive users, often as part of phishing attacks or to distribute malware.
+
+2. Cloud NAT: Cloud Network Address Translation (NAT) allows instances without public IP addresses to initiate outbound connections to the internet, enabling access to external APIs without direct exposure.
+
+3. Log Sink: A mechanism in Google Cloud for aggregating log data from various cloud services, allowing centralized management and exports to different destinations, such as BigQuery or Pub/Sub.
+
+On-premises SIEM: Security Information and Event Management systems that operate within the institution's internal infrastructure, providing security event management and real-time analysis of security alerts.
+
+Pub/Sub: A messaging service in Google Cloud that allows for asynchronous messaging between services, providing a durable communication channel for log ingestion into on-premises or other cloud systems.
+
+Log Metrics: User-defined filters and conditions within Google Cloud's logging service that transform log data into quantitative data, which can be used for monitoring and alerting.
+
+4. Inherent Firewall Rules: These are the default network access rules that are automatically created by the Google Cloud VPC to control inbound and outbound traffic for instances unless overridden by custom rules.
+
+Outbound Traffic: This refers to any network traffic that originates from within your VPC and is destined for outside of your VPC, typically to the internet or another network.
+
+Inbound Traffic: Network traffic coming from outside of your VPC into the VPC is referred to as inbound traffic. This typically involves traffic requests to access resources hosted within your VPC.
+
+5. Protected Health Information (PHI): PHI includes sensitive health data that is protected under privacy laws like HIPAA. Its exposure can have legal and privacy implications, hence the need for robust identification and protection mechanisms.
+
+Cloud Data Loss Prevention API: A Google Cloud service designed to help discover, classify, and protect sensitive data. It uses pattern matching, machine learning, and other methods to identify and optionally redact sensitive information.
+
+6. ISO 27018: An international standard that sets forth guidelines for public cloud service providers on protecting personal data, addressing both legal and technical measures for privacy assurance in the cloud.
+
+Personal Data: Refers to any information relating to an identified or identifiable individual. This aspect is critical in privacy and compliance standards, such as ISO 27018.
+
+Cloud Privacy: Concerned with the strategies and practices for protecting consumers' privacy and managing personal information over cloud services.
+
+7. Cloud Identity: A centralized identity service that provides identity management, including user creation and device management, across Google Cloud services.
+
+SAML: Security Assertion Markup Language is an open standard for exchanging authentication and authorization data between an identity provider and a service provider.
+
+Google Cloud Directory Sync: A tool used to synchronize the data from an LDAP (Lightweight Directory Access Protocol) based on-premises IAM with Google’s Cloud Identity service.
+
+8. Packet Mirroring: A network feature that copies traffic from specific network services to a collector location for security and monitoring purposes. It helps in thorough traffic analysis, including payload.
+
+Audit Logs: Logs that record administrative activities and accesses within cloud services, offering insights into operations performed on the resources. Useful for governance, compliance, and risk auditing.
+
+Traffic Analysis: The process of intercepting and examining messages to deduce information from patterns in communication. It can be used for intrusion detection, network management, and ensuring policy compliance.
+
+9. Infrastructure as Code (IaC): IaC is a key DevOps practice that involves managing and provisioning computing infrastructure through machine-readable definition files, rather than physical hardware configuration.
+
+Static Analysis Tools: These tools analyze the code without executing it to detect potential security vulnerabilities, non-compliance with standards, and other code quality issues.
+
+CI/CD Pipelines: Continuous Integration/Continuous Deployment pipelines are automated processes that enable frequent and reliable changes to software by building, testing, and deploying code changes.
+
+10. Instance Templates: Templates that provide a blueprint for creating Compute Engine instances with specific machine configurations, which help ensure uniformity and adherence to organizational standards.
+
+Service Accounts: These accounts give applications or instances the necessary identities to authenticate and authorize API requests, enforcing least privilege principles for better security.
+
+VPC Firewall Rules: Rules that govern traffic flow into and out of virtual private cloud resources, allowing for granular network security that aligns with organizational policies and requirements.
+
+11. Container Image: A container image is an immutable file that includes all the dependencies (code, runtime, system tools, libraries) needed to run an application.
+
+CI/CD Pipeline: Continuous Integration/Continuous Deployment is a methodology that allows developers to automate the testing and deployment of applications, facilitating frequent code changes.
+
+Rolling Update: Rolling updates allow deployments to be updated with zero downtime by gradually updating pods with new container images.
+
+12. Shared VPC: Shared VPC allows an organization to connect resources from multiple projects to a common Virtual Private Cloud, thereby managing access across all participating projects efficiently.
+
+VPC Service Controls: VPC Service Controls strengthen the security of sensitive data in Cloud Storage by creating a security perimeter around data and restricting data exfiltration risks.
+
+Service Perimeter: A service perimeter is a boundary that defines a security zone in which Google Cloud resources can reside. Resources within the perimeter can communicate securely.
+
+Management Project: This is the host project in a Shared VPC setup, responsible for managing network resources for itself and connected service projects.
+
+13. Domain-restricted sharing policy: An organization policy that restricts resource sharing within Google Cloud to specified domains, enhancing security by preventing data access from unauthorized domains.
+
+Custom policy value: A setting that allows for a more granular approach when configuring organization policies, enabling the addition of specific exceptions to general rules.
+
+Cloud Identity: Google's identity as a service (IDaaS) solution that centrally manages users and groups across Google Workspace, Cloud Identity, and other Google services.
+
+14. Log Bucket: A Log Bucket is a configurable Cloud Logging container that stores log entries. Buckets can be set to different regions and managed for access and retention policies, aiding in compliance with regional data laws.
+
+Data Sovereignty: Data Sovereignty refers to the concept that digital data is subject to the laws of the country where it is processed or stored. Compliance with these laws is crucial for international operations.
+
+Log Forwarding: Log Forwarding in Cloud Logging involves redirecting log data from one logging source to a designated log bucket, storage, or external service for central management or further processing.
+
+Organization Policy Constraint: An Organization Policy Constraint allows administrators to define specific policies that restrict resource locations, ensuring resources are compliant with geographical constraints.
+
+15. Cloud NAT: Enables resources in a private network to access the internet or other external services without being assigned a public IP, typically used to securely manage traffic to and from instances without public addresses.
+
+Public IP: An IP address that is reachable from the internet. Services hosted on a server with a public IP can be accessed globally, increasing the risk of exposure compared to private IP addresses.
+
+Patch Management: The process of distributing and applying updates to software. These patches can include security fixes, new features, and performance improvements, and are crucial for maintaining system security.
+
+16. Two-step verification: An additional security layer for user accounts requiring two types of authentication: something they know (password) and something they have (a device for verification codes).
+
+Cloud Identity-Aware Proxy (IAP): Cloud IAP controls access to cloud applications running on Google Cloud by verifying a user's identity and determining if that user should be allowed access.
+
+Google Workspace Password Sync: A tool that synchronizes Google Workspace users' passwords with a Microsoft Active Directory or LDAP server, keeping a single password across internal and cloud services.
+
+Cloud VPN: Enables users to securely connect their on-premises network to the Google Cloud Platform's network over the public internet through an encrypted tunnel.
+
+17. OWASP: The Open Web Application Security Project is an online community which produces freely-available articles, methodologies, documentation, tools, and technologies in the field of web application security.
+
+Web Security Scanner: A built-in service offered by Google Cloud that automatically scans App Engine, Compute Engine, and Google Kubernetes Engine applications for common web vulnerabilities.
+
+18. PHI: Protected Health Information (PHI) is sensitive information in healthcare that is subject to stringent regulatory standards like HIPAA, requiring particular attention to how it is encrypted and managed.
+
+Google managed encryption: An encryption service where Google handles the cryptographic keys and their lifecycle without user involvement, typically used for less sensitive information.
+
+Cloud Key Management Service: A cloud service that enables users to create, manage, and rotate encryption keys themselves, offering greater control over the encryption process.
+
+Key geography: Refers to the physical location or jurisdiction where encryption keys are stored and managed, which can impact compliance with regional or sector-specific regulations.
+
+HIPAA: The Health Insurance Portability and Accountability Act of 1996 sets standards for protection of sensitive patient data in the United States.
+
+Key rotation: The practice of regularly changing the encryption keys used to secure data, thereby limiting the amount of data exposed if a key is compromised.
+
+Cloud External Key Manager: A Google Cloud service that allows customers to use encryption keys stored and managed in third-party key management systems outside of Google's infrastructure.
+
+19. Managed Instance Group: An auto-scaling service in Google Cloud that ensures the availability of applications by managing groups of identical VMs, handling failover, and automatic repair.
+
+Service Account: A special Google account that belongs to an application or a virtual machine, not an individual end user. It is used to authenticate applications and grant API access.
+
+Ingress Firewall Rule: Defines the connections that are allowed to reach network endpoints. These rules govern the incoming traffic to Compute Engine VMs from various sources.
+
+Egress Firewall Rule: Specifies which connections can exit from a set of instances in a Google Cloud network. Egress rules control outbound communication.
+
+Network Tag: A label that can be assigned to Google Cloud virtual machines, used by firewall rules to identify traffic to and from instances.
+
+VPC Network: A custom virtual network in Google Cloud that provides networking functionality to Compute Engine VMs, load balancers, and other network-related resources.
+
+Redis: An in-memory data structure store, commonly used as a database, cache, and message broker. In this case, it is deployed on a Compute Engine VM.
+
+20. CryptoReplaceFfxFpeConfig: A method within Google Cloud's DLP API that enables format-preserving encryption (FPE), substituting sensitive data with a reversible cryptographic representation.
+
+De-identification: The process of removing or altering personal identifying information, so data can be analyzed without revealing private information, suitable for maintaining privacy in data analysis.
+
+Reversible transformation: A means of data transformation that allows the original data to be reconstructed, typically using an encryption key, assuring data privacy while enabling detailed analysis.
+
+21. Key Access Justifications: A feature that provides detailed reasons why a request to use a customer-managed encryption key (CMEK) was approved, enabling users to justify why access to an encryption key was necessary.
+
+Cloud External Key Manager (EKM): A service that allows customers to manage encryption of their Google Cloud data using external, third-party key management systems, affording them direct control over key security.
+
+Customer-managed encryption keys: Keys that are generated and managed in Google Cloud by the customer to control encryption of their data at rest, but are not externally hosted.
+
+Customer-Supplied Encryption Keys: A security feature where the customer provides their own encryption keys, which are not stored within Google’s infrastructure, to secure their cloud data.
+
+Access Transparency and Approval: A feature that provides visibility into Google staff operations by logging the actions taken by Google personnel and allows for approval workflows for such access requests.
+
+22. Google Cloud Directory Sync (GCDS): GCDS is a tool that allows for the synchronization of user data between an existing LDAP-compliant directory (like Microsoft Active Directory) and Google Cloud's identity services, ensuring that user accounts and access rights are aligned.
+
+23. Google Admin Console: A web-based interface where administrators can manage Google Account features for people within an organization, including the enforcement and suspension of security protocols like MFA.
+
+Multi-Factor Authentication (MFA): An advanced security process that requires a user to provide multiple verification factors to gain access to a resource such as an application, online account, or VPN.
+
+Super Administrator Account: An elevated privilege account within the Google Admin console that has the highest levels of control and can perform every possible administrative task.
+
+Backup Codes: A set of codes provided by online services that can be used for accessing an account in the event the primary MFA device is unavailable.
+
+24. Customer-managed encryption keys (CMEK): CMEK allows clients to create, use, and manage their encryption keys in Google Cloud services. These keys are used to protect data at rest and give clients control over the encryption process.
+
+Data Encryption Key (DEK): DEK is the key that directly encrypts and decrypts the data. In Google Cloud, DEKs are encrypted with Key Encryption Keys for added security.
+
+Key Encryption Key (KEK): KEK is an encryption key that is used to encrypt, or wrap, data encryption keys. This adds an additional layer of security by separating the management of DEKs from the data itself.
+
+25. External Load Balancing: In Google Cloud, an external load balancer distributes incoming traffic among Google Cloud resources located in multiple regions. It's a crucial aspect for ensuring global traffic management and high availability of services.
+
+HTTP(S) Load Balancer: An HTTP(S) load balancer is a fully distributed, software-defined managed service for all your HTTP and HTTPS traffic, offering advanced traffic management capabilities such as URL maps and host rules.
 
 Template
 1.
