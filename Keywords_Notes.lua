@@ -643,7 +643,10 @@ GitLab CI/CD: A tool built into GitLab for software development through the cont
 
 
 Set 3
-1. Cloud Interconnect: Provides a secure, high-bandwidth connection between on-premises networks and Google's network, reducing latency and increasing reliability compared to public internet connectivity.
+1. Cloud Interconnect
+  - Provides a secure, high-bandwidth connection between on-premises networks and
+  - Google's network, reducing latency
+  - increasing reliability compared to public internet connectivity.
 
 gsutil: A Python-based command-line tool that manages files in Google Cloud Storage. It allows for the creation of sync tasks to automate data transfers.
 
@@ -669,7 +672,12 @@ Cloud NAT Gateway: Enables VM instances without public IP addresses to connect t
 
 5. Packet Mirroring: A network service that duplicates a copy of a specified ingress and/or egress traffic on instances and delivers it to a designated packet collector for analysis.
 
-VPC Flow Logs: A feature that enables logging of network flows sent from and received by VM instances, including traffic within the same VPC, inter-VPC, and between Google services and VMs.
+VPC Flow Logs: 
+  - A feature that enables logging of network flows sent from 
+  - and received by VM instances
+  - including traffic within the same VPC
+  - inter-VPC
+  - between Google services and VMs.
 
 Organizational Policy Constraints: Policies that help enforce specific resource configurations across an entire GCP organization to comply with governance and compliance requirements.
 
@@ -771,9 +779,15 @@ Google-managed encryption keys: Encryption keys that are fully handled by Google
 
 Data Sensitivity: A measure of how critical the data is to protect, often determining the rigor of security measures like encryption and key management applied to the data.
 
-23. BeyondCorp Enterprise: A security model and product offered by Google Cloud that enables zero-trust access to company data and resources, often based on the verification of the user and the device context.
+23. BeyondCorp Enterprise: 
+  - A security model and product offered by Google Cloud that enables zero-trust access 
+    - to company data and resources
+    - often based on the verification of the user 
+      - and the device context.
 
-Device Certificate: A digital certificate installed on a device to assert its identity. It is used within secure environments to authenticate devices before allowing access to resources.
+Device Certificate:
+  - A digital certificate installed on a device to assert its identity. 
+  - It is used within secure environments to authenticate devices before allowing access to resources.
 
 Access Policy: A configuration in security services like BeyondCorp that defines the criteria for granting or denying access to resources based on user identity, device security status, and other attributes.
 
@@ -785,9 +799,17 @@ allow list operation: A policy operation that explicitly permits only what is in
 
 deny list operation: Contrary to allow lists, this policy operation prohibits specifically listed entities while permitting all others that aren't listed.
 
-25. Policy Analyzer: A tool in Google Cloud's IAM that provides insights into who has what access to resources across the organization, allowing security and compliance checks related to users' permissions.
+25. Policy Analyzer: 
+  - A tool in Google Cloud's IAM that provides insights into who has what access 
+    - to resources across the organization, 
+    - allowing security and compliance checks related to users' permissions.
 
-permissions sql.instances.update or sql.instances.patch or sql.instances.delete: Specific IAM permissions in Cloud SQL that allow users to update, apply patches, or delete database instances, respectively, which are critical actions requiring close monitoring.
+permissions sql.instances.update or sql.instances.patch or sql.instances.delete: 
+  - Specific IAM permissions in Cloud SQL that 
+    - allow users to update, 
+    - apply patches, 
+    - or delete database instances
+    - respectively, which are critical actions requiring close monitoring.
 
 26. Customer-managed encryption keys (CMEK): A feature allowing customers to manage their own encryption keys in Google Cloud KMS, which are then used to encrypt data at rest within cloud resources.
 
@@ -851,9 +873,13 @@ Format-Preserving Encryption: A type of encryption that maintains the original f
 
 Cloud Key Management Service (KMS): A cloud service to manage cryptographic keys. Its use with DLP provides an additional security layer, but does not affect the adherence to de-identification techniques.
 
-37. Row-Level Access Control: Method to manage data visibility in a database table where permissions are set based on rows, enabling row filtering during query execution.
+37. Row-Level Access Control: 
+  - Method to manage data visibility in a database table where permissions are set based on rows
+  - enabling row filtering during query execution.
 
-Column-Level Security Label: A security feature that uses labels attached to columns for controlling access rights, allowing granular permission management on a per-column basis.
+Column-Level Security Label: 
+  - A security feature that uses labels attached to columns for controlling access rights
+  - allowing granular permission management on a per-column basis.
 
 Least Privilege Principle: A key security concept that involves granting users only the permissions they need to perform their tasks, minimizing access to sensitive data and systems.
 
@@ -877,9 +903,15 @@ Cloud Functions: A serverless execution environment for building and connecting 
 
 Data Loss Prevention (DLP) API: A service that provides data inspection, classification, and redaction capabilities. It can help find and de-identify sensitive information in data streams or stored data.
 
-41. Access Transparency: Provides logs of Google Cloud Platform actions taken by Google staff when interacting with your data or configuration, allowing visibility into the operational access by the provider.
+41. Access Transparency: 
+  - Provides logs of Google Cloud Platform actions taken by Google staff
+    - when interacting with your data or configuration, 
+    - allowing visibility into the operational access by the provider.
 
-Access Approval: A feature that allows you to approve or deny Google support and engineering access to your data when Google needs to interact with your data or configuration for support purposes.
+Access Approval: 
+  - A feature that allows you to approve or deny Google support 
+  - and engineering access to your data when Google needs to interact with your data or 
+  - configuration for support purposes.
 
 42. Least Privilege Principle: A security concept where a user is granted the minimum levels of access – or permissions – needed to perform his/her job functions.
 
@@ -911,7 +943,9 @@ Binary Authorization: A security control that ensures only trusted container ima
 
 Attestation: A security assertion that confirms a container image meets a set of defined criteria, often used alongside Binary Authorization in GKE to ensure image trustworthiness.
 
-46. Cloud Asset Inventory: A Google Cloud service that helps users to maintain visibility into their cloud resources, supporting the discovery, monitoring, and analysis of cloud assets across projects and services.
+46. Cloud Asset Inventory: 
+  - A Google Cloud service that helps users to maintain visibility into their cloud resources
+  - supporting the discovery, monitoring, and analysis of cloud assets across projects and services.
 
 Network Security Scanner: A tool or service that performs automated security scanning of network services and is used to detect vulnerabilities and risks in public-facing resources within a cloud environment.
 
