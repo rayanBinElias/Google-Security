@@ -103,7 +103,10 @@ IAM Policies: Defines who (identity) has what access (roles) to a particular Goo
 
 15.Google Workspace Admin Console: An administrative interface that allows the management of Google Workspace services, such as managing user accounts, groups, organizational units, and security settings related to Google Workspace applications.
 
-16.Service Account Key: Service account keys are used for server-to-server interactions that involve a service account, like automated services running on virtual machines.
+16.Service Account Key: 
+  - Service account keys are used for server-to-server interactions 
+  - that involve a service account, 
+  - like automated services running on virtual machines.
 
 Audit Logs: Audit logs record administrative activities and accesses within your cloud environment, which are crucial for security and compliance monitoring.
 
@@ -301,13 +304,20 @@ API calls: Requests made to API endpoints that execute operations, such as acces
 
 47. Google Cloud Directory Sync: A service that synchronizes user accounts from an existing Active Directory or LDAP server with Google Cloud identity services, enabling centralized user management.
 
-SSO (Single Sign-On): An authentication process that allows users to access multiple applications with one set of login credentials, improving user experience and security.
+SSO (Single Sign-On): 
+  - An authentication process that allows users to access multiple app
+    - with one set of login credentials, 
+  - improving user experience and security.
 
 Active Directory (AD): A directory service developed by Microsoft for Windows domain networks. It is widely used for user and identity management.
 
-LDAP (Lightweight Directory Access Protocol): An open, vendor-neutral application protocol for accessing and maintaining distributed directory information services over an internet protocol network.
+LDAP (Lightweight Directory Access Protocol): 
+  - An open, vendor-neutral application protocol for accessing and 
+  - maintaining distributed directory information services 
+  - over an internet protocol network.
 
-Kerberos: A network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography.
+Kerberos: 
+  - A network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography.
 
 48. Shielded VMs: A service offering from Google Cloud that provides fortified virtual machines with features like secure boot, vTPM, and integrity monitoring to protect against rootkits and bootkits.
 
@@ -418,11 +428,25 @@ Redaction
 Preservation
   - In compliance contexts, preservation refers to the maintenance of data integrity and accessibility, often for legally mandated periods, without alteration or loss.
 
-11.Cloud Data Loss Prevention (DLP): A service that helps to manage and protect sensitive data by providing data inspection, classification, and redaction capabilities across Google Cloud services.
+11.SaaS (Software as a Service)
+  - A software distribution model in which applications 
+    - are hosted by a vendor or service provider 
+    - and made available to customers over a network typically the internet.
 
-Redaction: The process of removing sensitive information from a document. In the context of data security, redaction obscures or eliminates personal or confidential information that should not be disclosed.
+Distributed Responsibility Model
+  - In cloud computing, this is the shared responsibility 
+    - between the cloud service provider 
+    - and the customer for implementing and 
+    - managing security controls within the cloud services.
 
-Preservation: In compliance contexts, preservation refers to the maintenance of data integrity and accessibility, often for legally mandated periods, without alteration or loss.
+Regulatory Compliance
+  - Adhering to laws, 
+  - regulations
+  - guidelines, and 
+  - specifications relevant to an organization's business processes.
+  - For healthcare, this often involves 
+    - strict data protection and network security measures.
+
 12.Uniform bucket-level access: A feature in Cloud Storage that simplifies permission management by disabling object-level access and using only IAM policies for access control.
 
 Cloud Audit Logs: Records events for auditing and compliance within Google Cloud services, which can help monitor who did what, where, and when.
@@ -546,11 +570,19 @@ HTTP Request Headers: Pieces of information about the browser, the requested pag
 
 Identity Headers: Special headers used by identity providers and services like Cloud IAP to pass on the identity information of the user making a request to an application or resource.
 33.Private Google Access: A feature that allows VM instances on a subnet to reach Google services without a public IP address. It leverages internal routing within GCP to access GCP services.
-34.ENVELOPE ENCRYPTION: A security mechanism where a data encryption key (DEK) is used to encrypt data and a separate key encryption key (KEK) is used to encrypt the DEK, enhancing the overall security of sensitive data.
+34.ENVELOPE ENCRYPTION
+  - A security mechanism where a data encryption key (DEK) is used to encrypt data 
+  - and a separate key encryption key (KEK) is used to encrypt the DEK
+  - enhancing the overall security of sensitive data.
 
-DEK: Data Encryption Key, a symmetric key used for encrypting and decrypting data, designed to be frequently rotated or changed for enhanced security.
+DEK: Data Encryption Key
+  - a symmetric key used for encrypting and decrypting data
+  - designed to be frequently rotated or changed for enhanced security.
 
-KEK: Key Encryption Key, an asymmetric or symmetric key used to encrypt and protect DEKs. It is generally stored and managed in a secure service like a key management system.
+KEK: Key Encryption Key
+  - an asymmetric or symmetric key used to encrypt and protect DEKs. 
+  - It is generally stored and managed in a secure service 
+  - like a key management system.
 
 CLOUD KMS: A cloud-based key management service that allows you to manage, create, and rotate cryptographic keys for your Cloud resources.
 35.Cloud Identity-Aware Proxy: A Google Cloud service for controlling access to applications running on Google Cloud, allowing the enforcement of access policies and the use of multi-factor authentication without a VPN.
@@ -559,11 +591,22 @@ CLOUD KMS: A cloud-based key management service that allows you to manage, creat
 Redundant Rules: Redundant rules in a firewall context refer to rules that are either identical or encompassed by broader rules, possibly leading to inefficiencies.
 
 Shadowed Rules: Shadowed rules are firewall rules that will never match traffic because another rule with a higher priority effectively 'shadows' them.
-37.Workload Identity Federation: An authentication method that allows applications running outside Google Cloud to assume an IAM Role without using service account keys, facilitating more secure and maintainable cross-environment access.
+37.Workload Identity Federation
+  - An authentication method that allows applications 
+    - running outside Google Cloud to assume an IAM Role 
+    - without using service account keys
+    -facilitating more secure and maintainable cross-environment access.
 
-Attribute Mapping: The process of associating claims from the external identity provider with IAM roles. It uses constant or expression attributes to ensure consistent access management.
+Attribute Mapping
+  - The process of associating claims from the external identity provider 
+    - with IAM roles. 
+  - It uses constant or expression attributes 
+  - to ensure consistent access management.
 
-Identity Pools: A federation mechanism that provides a way to create a pool of external identities and associate them with IAM permissions without creating individual IAM users within Google Cloud.
+Identity Pools
+  - A federation mechanism that provides a way to create a pool of external identities 
+  - and associate them with IAM permissions without creating individual IAM users within Google Cloud.
+
 38.Monitoring Sinks: A feature within Google Cloud Monitoring that allows users to create sinks that specify how certain logs are exported to other destinations, such as Cloud Pub/Sub, BigQuery, or Cloud Storage.
 
 Cloud Pub/Sub: A scalable, durable event ingestion and delivery system that serves as a foundation for building event-based systems and streaming analytics pipelines.
@@ -648,7 +691,9 @@ Set 3
   - Google's network, reducing latency
   - increasing reliability compared to public internet connectivity.
 
-gsutil: A Python-based command-line tool that manages files in Google Cloud Storage. It allows for the creation of sync tasks to automate data transfers.
+gsutil: 
+  - A Python-based command-line tool that manages files in Google Cloud Storage.
+  - It allows for the creation of sync tasks to automate data transfers.
 
 electronic health records (EHR): Digital versions of patients' paper charts. EHRs contain medical history, diagnoses, medications, treatment plans, immunization dates, allergies, and test results.
 
@@ -1395,7 +1440,9 @@ VPC Network: A custom virtual network in Google Cloud that provides networking f
 
 Redis: An in-memory data structure store, commonly used as a database, cache, and message broker. In this case, it is deployed on a Compute Engine VM.
 
-20. CryptoReplaceFfxFpeConfig: A method within Google Cloud's DLP API that enables format-preserving encryption (FPE), substituting sensitive data with a reversible cryptographic representation.
+20. CryptoReplaceFfxFpeConfig
+  - A method within Google Cloud's DLP API that enables format-preserving encryption (FPE)
+  - substituting sensitive data with a reversible cryptographic representation.
 
 De-identification: The process of removing or altering personal identifying information, so data can be analyzed without revealing private information, suitable for maintaining privacy in data analysis.
 
