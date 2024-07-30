@@ -166,9 +166,12 @@ IAP-secured Tunnel User role: A predefined Identity and Access Management (IAM) 
 
 Firewall rule for IAP IP scope: A security policy that allows network traffic from IAP's forwarding IP ranges. It ensures only IAP-authenticated users can initiate sessions, enhancing connection security.
 
-26.Admin Activity audit logs: Logs that record operations that modify the configuration or metadata of resources. Essential for monitoring and securing administrative actions.
+26.Admin Activity audit logs: 
+  - Logs that record operations that modify the configuration or metadata of resources. 
+  - Essential for monitoring and securing administrative actions.
 
-Data Access audit logs: Logs that track API calls that create, modify, or read user-provided data. Vital for assessing who accesses sensitive data and how.
+Data Access audit logs: 
+  - Logs that track API calls that create, modify, or read user-provided data. Vital for assessing who accesses sensitive data and how.
 
 System Event audit logs: Logs that record Google Cloud system events, which are automatically produced by Google services, rather than driven by direct user actions.
 
@@ -182,7 +185,8 @@ Folders: Hierarchical elements within Google Cloud that allow the grouping of re
 
 IAM Permissions: The mechanism within Google Cloud IAM that controls access to resources by defining who (identity) has what access (role) for which resource.
 
-28.Admin Activity audit logs: Logs that record operations that modify the configuration or metadata of resources. Essential for monitoring and securing administrative actions.
+28.Admin Activity audit logs:
+  -  Logs that record operations that modify the configuration or metadata of resources. Essential for monitoring and securing administrative actions.
 
   Data Access audit logs: Logs that track API calls that create, modify, or read user-provided data. Vital for assessing who accesses sensitive data and how.
 
