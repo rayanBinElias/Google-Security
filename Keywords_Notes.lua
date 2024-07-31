@@ -101,7 +101,10 @@ Organization Node: The root node in the Google Cloud resource hierarchy that rep
 
 IAM Policies: Defines who (identity) has what access (roles) to a particular Google Cloud resource. It is crucial for security and proper access management.
 
-15.Google Workspace Admin Console: An administrative interface that allows the management of Google Workspace services, such as managing user accounts, groups, organizational units, and security settings related to Google Workspace applications.
+15.Google Workspace Admin Console:
+  - An administrative interface that allows the management of Google Workspace services, 
+    - such as managing user accounts, groups, organizational units, and 
+    - security settings related to Google Workspace applications.
 
 16.Service Account Key: 
   - Service account keys are used for server-to-server interactions 
@@ -302,7 +305,11 @@ AES-SIV: Authenticated encryption mode that allows encryption to be deterministi
 
 Data anonymization: The process of protecting private or sensitive information by erasing or encrypting identifiers that connect an individual to stored data.
 
-46. Data Access logs: Detailed audit logs within Google Cloud that record when data is created, modified, or accessed. Useful for forensic and compliance purposes, especially regarding unauthorized access investigations.
+46. Data Access logs: 
+  - Detailed audit logs within Google Cloud that record 
+    - when data is created, modified, or accessed. 
+    - Useful for forensic and compliance purposes, 
+    -especially regarding unauthorized access investigations.
 
 API calls: Requests made to API endpoints that execute operations, such as accessing, modifying, or managing resources within Google Cloud services.
 
@@ -321,7 +328,8 @@ LDAP (Lightweight Directory Access Protocol):
   - over an internet protocol network.
 
 Kerberos: 
-  - A network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography.
+  - A network authentication protocol designed to provide strong authentication 
+  - for client/server applications by using secret-key cryptography.
 
 48. Shielded VMs: A service offering from Google Cloud that provides fortified virtual machines with features like secure boot, vTPM, and integrity monitoring to protect against rootkits and bootkits.
 
@@ -482,7 +490,10 @@ Google Group: A collection of users with a common set of permissions. Google Gro
 Project Viewer role: Project Viewer is a predefined IAM role in Google Cloud that grants read-only access to view resources within a project, but does not allow the user to modify any resource or data.
 
 Resource hierarchy: The structured organization of resources in Google Cloud, consisting of the Organization, Folders, Projects, and Resources, used to manage access control and project settings at scale.
-18.VPC Peering: Allows private network traffic to flow between Virtual Private Clouds (VPCs) in different projects or organizations without traversing the public internet, using Google's internal network.
+18.VPC Peering: 
+  - Allows private network traffic to flow between Virtual Private Clouds 
+    - (VPCs) in different projects or organizations without traversing the public internet, 
+      - using Google's internal network.
 
 Data Layer: Typically refers to the database or storage tier within a multi-tiered architecture where data is stored and managed.
 
@@ -565,7 +576,9 @@ Cloud Identity: A service by Google that offers identity management and device a
 
 VPC Firewall: A distributed, stateful firewall service for Virtual Private Clouds that provides network security control over types of traffic entering or exiting the network boundaries.
 
-VPC Flow Logs: Records a sample of network flows sent from and received by VM instances, helping with network monitoring, forensics, and security.
+VPC Flow Logs: 
+  - Records a sample of network flows sent from and received by VM instances
+  - helping with network monitoring, forensics, and security.
 
 Dedicated Project: A Google Cloud organizational structure that involves separating resources and services into different projects for security, billing, or administrative purposes.
 32.Cloud Identity-Aware Proxy (Cloud IAP): A service that allows you to control access to your web applications and GCP services by verifying a user's identity and determining if that user should be allowed to access the resource.
@@ -655,7 +668,10 @@ VPC Network Peering: A networking feature in Google Cloud that allows different 
 
 Network Interfaces: Network interfaces allow a network device to interact with a VPC network. In Google Cloud, VM instances can have multiple network interfaces, connecting to different VPC networks.
 
-Intrusion Prevention System (IPS): An IPS is a network security/threat prevention technology that examines network traffic flows to detect and prevent vulnerability exploits.
+Intrusion Prevention System (IPS): 
+  - An IPS is a network security/threat prevention technology that 
+  - examines network traffic flows to detect and 
+    - prevent vulnerability exploits.
 
 Network Traffic Inspection: This process involves analyzing the communication between different services and entities within a network to detect malicious activity or performance issues.
 46.VPC Service Controls: Advanced security feature that allows users to define a security perimeter around Google Cloud resources to mitigate data exfiltration risks. It restricts the resources' accessibility to other Google Cloud services and external networks.
@@ -705,7 +721,10 @@ electronic health records (EHR): Digital versions of patients' paper charts. EHR
 
 VPC Service Controls: An advanced security mechanism that allows administrators to define a security perimeter around Google Cloud resources to prevent data exfiltration.
 
-Shared VPC: A Google Cloud feature that allows an organization to connect resources from multiple projects to a common Virtual Private Cloud, enabling efficient management and resource sharing across projects.
+Shared VPC: 
+  - A Google Cloud feature that allows an organization to connect resources 
+    - from multiple projects to a common Virtual Private Cloud,
+    - enabling efficient management and resource sharing across projects.
 
 Private Service Endpoint: A network feature that connects services directly to your VPC using internal IP addresses to enhance security and reduce exposure to the public internet.
 
@@ -768,7 +787,10 @@ Lightweight Directory Access Protocol (LDAP): An open, vendor-neutral applicatio
 
 Identity Pool: A collection of identities from an external identity provider that can be mapped to Google Cloud service account permissions.
 
-OpenID Connect (OIDC): A simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end-user based on the authentication performed by an authorization server.
+OpenID Connect (OIDC):
+  - A simple identity layer on top of the OAuth 2.0 protocol, 
+  - which allows computing clients to verify the identity of an end-user 
+  - based on the authentication performed by an authorization server.
 
 12. Cloud Interconnect: Provides a direct, enterprise-grade connection between Google's network and a company's internal network. It offers lower latency, increased bandwidth, and a private connection.
 
